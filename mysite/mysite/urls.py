@@ -34,6 +34,7 @@ urlpatterns = [
     path('trains/', include('trains.urls')),
     path('tickets/', include('tickets.urls')),
     path('chinarailway/', include('system.urls')),
+    path('information/', views.showinfo, name="sinfo"),
 ]
 
 #handler404 = views.page_not_found

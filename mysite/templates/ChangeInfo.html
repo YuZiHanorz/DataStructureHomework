@@ -12,12 +12,19 @@
       <form class="form-signin" method="post" action="/change_info/">
         {% csrf_token %}
         <h2 class="form-signin-heading">{% trans "Change user info" %}</h2>
+        <h5>{% trans "Email address" %}</h5>
         <label for="inputEmail" class="sr-only">{% trans "Email address" %}</label>
         <input type="email" name="emailaddress" class="form-control" placeholder="example@example.com">
-        <label for="inputName" class="sr-only">{% trans "Name" %}</label>
+        <h5>{% trans "User Name" %}</h5>
+        <label for="inputName" class="sr-only">{% trans "User Name" %}</label>
         <input type="text" name="username" class="form-control" placeholder="{% trans 'User Name' %}">
-        <label for="inputPassword" class="sr-only">{% trans "Password" %}</label>
-        <input type="password" id="pass" name="password" class="form-control" placeholder="{% trans 'Password' %}">
+        <h5>{% trans "Old password" %}</h5>
+        <label for="inputPassword" class="sr-only">{% trans "Old password" %}</label>
+        <input type="password" id="pass" name="password" class="form-control" placeholder="{% trans 'Old password' %}" required>
+        <h5>{% trans "New password" %}{% trans "(if needed)" %}</h5>
+        <label for="inputPassword" class="sr-only">{% trans "New password" %}</label>
+        <input type="password" name="password" class="form-control" placeholder="{% trans 'New password' %}" required>
+        <h5>{% trans "Phone Number" %}</h5>
         <label for="inputPhone" class="sr-only">{% trans "Phone Number" %}</label>
         <input type="tel" name="phonenumber" class="form-control" placeholder="{% trans 'Phone Number' %}">
         <div id="btn">

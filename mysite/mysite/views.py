@@ -224,6 +224,19 @@ def cinfo(request):
 
     return render(request, 'ChangeInfo.html', context)
 
+def showinfo(request):
+    userid = getServerSideCookie(request, 'userid', '0')
+    userpv = getServerSideCookie(request, 'userpv', '0')
+
+    context111 = {}
+    context111['login_name'] = userid
+    context111['authority'] = userpv
+    context111['style'] = getServerSideCookie(request, 'tmpstyle', '1')
+    context111['email'] = '1@1.com'
+    context111['phone'] = '123'
+    context111['name'] = 'abc'
+    return render(request, 'ShowInfo.html', context111)
+
 def page_not_found(request):
     context = {}
     context['login_name'] = getServerSideCookie(request, 'userid', '0')

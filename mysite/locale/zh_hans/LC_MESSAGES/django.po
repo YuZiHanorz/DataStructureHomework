@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-12 10:51+0000\n"
+"POT-Creation-Date: 2018-06-12 10:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,7 +65,7 @@ msgid "Staying time"
 msgstr "停留时间"
 
 #: templates/AskTrain.html:39 templates/SeekTickets.html:103
-#: templates/add_train_in_station.html:19 templates/buyhistory.html:92
+#: templates/add_train_in_station.html:19
 msgid "Prices"
 msgstr "价格"
 
@@ -97,45 +97,47 @@ msgstr "删除"
 msgid "This train doesn't exist!"
 msgstr "该车次不存在！"
 
-#: templates/ChangeInfo.html:14 templates/ChangeInfo.html:32
+#: templates/ChangeInfo.html:14 templates/ChangeInfo.html:35
 #: templates/ShowInfo.html:14 templates/ShowInfo.html:25
 msgid "Change user info"
 msgstr "更改用户信息"
 
-#: templates/ChangeInfo.html:15 templates/ShowInfo.html:15
-#: templates/ShowInfo.html:16 templates/Signupadmin.html:25
-#: templates/signup.html:15
+#: templates/ChangeInfo.html:15 templates/ChangeInfo.html:16
+#: templates/ShowInfo.html:15 templates/ShowInfo.html:16
+#: templates/Signupadmin.html:25 templates/signup.html:15
 msgid "Email address"
 msgstr "电子邮箱地址"
 
-#: templates/ChangeInfo.html:17 templates/ChangeInfo.html:18
-#: templates/ShowInfo.html:18 templates/ShowInfo.html:19
-#: templates/Signupadmin.html:28 templates/signup.html:18
+#: templates/ChangeInfo.html:18 templates/ChangeInfo.html:19
+#: templates/ChangeInfo.html:20 templates/ShowInfo.html:18
+#: templates/ShowInfo.html:19 templates/Signupadmin.html:28
+#: templates/signup.html:18
 msgid "User Name"
 msgstr "用户名"
 
-#: templates/ChangeInfo.html:19 templates/ChangeInfo.html:20
-#: templates/ChangeInfo.html:21
+#: templates/ChangeInfo.html:21 templates/ChangeInfo.html:22
+#: templates/ChangeInfo.html:23
 msgid "Old password"
 msgstr "旧密码"
 
-#: templates/ChangeInfo.html:22 templates/ChangeInfo.html:23
-#: templates/ChangeInfo.html:24
+#: templates/ChangeInfo.html:24 templates/ChangeInfo.html:25
+#: templates/ChangeInfo.html:26
 msgid "New password"
 msgstr "新密码"
 
-#: templates/ChangeInfo.html:22
+#: templates/ChangeInfo.html:24
 msgid "(if needed)"
 msgstr "（选填）"
 
-#: templates/ChangeInfo.html:25 templates/ChangeInfo.html:26
-#: templates/ShowInfo.html:21 templates/ShowInfo.html:22
-#: templates/Signupadmin.html:31 templates/Signupadmin.html:32
-#: templates/signup.html:21 templates/signup.html:22
+#: templates/ChangeInfo.html:27 templates/ChangeInfo.html:28
+#: templates/ChangeInfo.html:29 templates/ShowInfo.html:21
+#: templates/ShowInfo.html:22 templates/Signupadmin.html:31
+#: templates/Signupadmin.html:32 templates/signup.html:21
+#: templates/signup.html:22
 msgid "Phone Number"
 msgstr "电话号码"
 
-#: templates/ChangeInfo.html:29 templates/Signupadmin.html:35
+#: templates/ChangeInfo.html:32 templates/Signupadmin.html:35
 #: templates/signup.html:25
 msgid "show password"
 msgstr "显示密码"
@@ -286,6 +288,10 @@ msgstr "提交以创建火车"
 #: templates/buyhistory.html:92
 msgid "Bought"
 msgstr "已买"
+
+#: templates/buyhistory.html:92
+msgid " Single Prices"
+msgstr "单价"
 
 #: templates/index.html:20
 msgid "Breaking!"

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block body %}
+
+<div class="container">
+<img src="{% static  'train.png' %}" alt="train" class="train-animation">
+<div class="card card-default" style="margin-top:3rem;">
+	<div class="card-heading">
+		<h3 class="card-title">{% trans "About us" %} </h3>
+	</div>
+	<div class="card-body">
+		{% trans "We are for student of ACM honored class in SJTU, and this is a page as our homework." %}
+	</div>
+	<table class="table table-hover">
+		<thead>
+			<th> {% trans "Name" %} </th><th> {% trans "Work Done" %}</th>
+		</thead>
+		<tbody>
+			<tr><td>陈伟哲</td><td>{% trans "Web Page" %}</td></tr>
+			<tr><td>邓伟信</td><td>{% trans "Link of the HTML with the back programme" %}</td></tr>
+        	<tr><td>李照宇</td><td>{% trans "test code (the activities concerns users)" %}</td></tr>
+        	<tr><td>余子涵</td><td>{% trans "test code" %} </td></tr>
+		</tbody>
+	</table>
+</div>
+</div>
+
+{%endblock%}

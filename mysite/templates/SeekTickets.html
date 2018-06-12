@@ -1,0 +1,155 @@
+{% extends 'searchtrain.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block headcss %}
+    <link rel="stylesheet" href="/static/theme.bootstrap_4.min.css">
+{% endblock %}
+{% block jsextends %}
+    <script type="text/javascript" src="/static/jquery.tablesorter.js"></script>
+
+    <script type="text/javascript" src="/static/jquery.tablesorter.widgets.js"></script>
+
+    <script type="text/javascript">
+    $(function() {
+        $("table").tablesorter({
+        theme : "bootstrap",
+
+        widthFixed: true,
+
+        // widget code contained in the jquery.tablesorter.widgets.js file
+        // use the zebra stripe widget if you plan on hiding any rows (filter widget)
+        // the uitheme widget is NOT REQUIRED!
+        widgets : [ "filter", "columns", "zebra" ],
+
+        widgetOptions : {
+          // using the default zebra striping class name, so it actually isn't included in the theme variable above
+          // this is ONLY needed for bootstrap theming if you are using the filter widget, because rows are hidden
+          zebra : ["even", "odd"],
+
+          // class names added to columns when sorted
+          columns: [ "primary", "secondary", "tertiary" ],
+
+          // reset filters button
+          filter_reset : ".reset",
+
+          // extra css class name (string or array) added to the filter element (input or select)
+          filter_cssFilter: [
+            'form-control',
+            'form-control',
+            'form-control custom-select', // select needs custom class names :(
+            'form-control',
+            'form-control',
+            'form-control',
+            'form-control'
+          ]
+
+        }
+        })
+        .tablesorterPager({
+
+        // target the pager markup - see the HTML block below
+        container: $(".ts-pager"),
+
+        // target the pager page select dropdown - choose a page
+        cssGoto  : ".pagenum",
+
+        // remove rows from the table to speed up the sort of large tables.
+        // setting this to false, only hides the non-visible rows; needed if you plan to add/remove rows with the pager enabled.
+        removeRows: false,
+
+        // output string - default is '{page}/{totalPages}';
+        // possible variables: {page}, {totalPages}, {filteredPages}, {startRow}, {endRow}, {filteredRows} and {totalRows}
+        output: '{startRow} - {endRow} / {filteredRows} ({totalRows})'
+
+        });
+
+        });
+    </script>
+{% endblock %}
+{% block answer %}
+    {% if asked == True %}
+    <div class="container">
+    <div class="card">
+        <div class="card-heading">
+            <h3 class="card-title text-center">{% trans "Search results"%}</h3>
+        </div>
+        <div class="card-body">
+        <table class="table tablesorter" id="myTable">
+            <thead>
+                <tr>
+                    <th>{% trans "Train id" %}</th><th>{% trans "Train catalogs"%}</th> <th><img src="/static/st.png" alt="start" width="20" height="20"> {% trans "Starting station" %} </th><th><span class="fa fa-clock-o fa-lg" aria-hidden="true" ></span>{% trans "Departure time"%}</th><th><img src="/static/ed.png" alt="end" width="20" height="20">{% trans "Destination"%}</th><th><span class="fa fa-clock-o fa-lg" aria-hidden="true" ></span>{% trans "Arriving time"%}</th>
+                </tr>
+            </thead>
+                    <!-- <tr><td>产品 B</td><td>400</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td><a href="http://www.baidu.com"> <button type="button" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Buy now
+        </button></a></td> </tr> -->
+            <!--
+            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            -->
+            <tbody>
+            {% for x in Trains %}
+
+                <tr data-toggle="collapse" data-target="#tickets_info{{x.0}}" class="accordion-toggle"><td>{{x.0}}</td><td>{{x.1}}</td><td>{{x.2}}</td><td>{{x.3}}</td><td>{{x.4}}</td><td>{{x.5}}</td></tr>
+                <tr>
+                    <td style="display:none">{{x.0}}</td><td style="display:none">{{x.1}}</td><td style="display:none">{{x.2}}</td><td style="display:none">{{x.3}}</td><td style="display:none">{{x.4}}</td><td style="display:none">{{x.5}}</td>
+                    <td colspan="5">
+                            <div class="collapse" id="tickets_info{{x.0}}" class="accordion-body">
+                                {% for a in x.6 %}
+                                <p><div class="row" style="text-align:center;">
+                                    <div class="col">
+                                        {{a.0}}{% trans "remaing" %}：{{a.1}}
+                                    </div>
+                                    <div class="col">
+                                        {{a.0}}{% trans "Prices" %}：￥{{a.2}}
+                                    </div>
+                                    <div class="col">
+                                    {% if a.1 > '0' %}
+                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn">
+                                    {% else %}
+                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn" disabled>
+                                    {%endif %}
+                                       {% trans "Buy now" %} </button>
+                                       <div class="modal fade" id="buyn" tabindex="-1" role="dialog" aria-labelledby="buyn" aria-hidden="true">
+                                         <div class="modal-dialog modal-dialog-centered" role="document">
+                                           <div class="modal-content">
+                                             <div class="modal-header">
+                                               <h5 class="modal-title">{% trans "Please choose the amount you want to buy"%}</h5>
+                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                 <span aria-hidden="true">&times;</span>
+                                               </button>
+                                             </div>
+                                            <form method="post">
+                                                {%csrf_token%}
+                                             <div class="modal-body">
+                                               <input type="number" name="num_buy" class="form-control" min="1" max="100" autofocus required>
+                                             </div>
+                                             <div class="modal-footer">
+                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cancel" %}</button>
+                                                   <input type="hidden" name="trainid" value="{{x.0}}">
+                                                   <input type="hidden" name="trainfr" value="{{x.2}}">
+                                                   <input type="hidden" name="trainto" value="{{x.4}}">
+                                                   <input type="hidden" name="date" value="{{date}}">
+                                                   <input type="hidden" name="class_name" value="{{a.0}}">
+                                                   <button type="submit" class="btn btn-success">{% trans "Submit!" %}</button>
+                                             </div>
+                                            </form>
+                                           </div>
+                                         </div>
+                                     </div>
+                                    </div>
+                                </div>
+                                </p>
+                                {% endfor %}
+                            </div>
+
+                        </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+    </div>
+    </div>
+    {% endif %}
+{% endblock %}

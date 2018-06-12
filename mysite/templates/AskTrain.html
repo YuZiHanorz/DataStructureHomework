@@ -1,0 +1,97 @@
+{% extends 'query_train.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block ans %}
+    {% if asked == True %}
+        <div class="container">
+            <div class="card-header">
+                {% trans "Search results"%}
+            </div>
+            <div class="card-body">
+                {% if has_train == True %}
+                <div class="row">
+                    <div class="col">
+                        {% trans "Train id" %}:{{train_id}}
+                    </div>
+                    <div class="col">
+                        {% trans "Train name" %}:{{train_name}}
+                    </div>
+                    <div class="col">
+                        {% trans "Catalogs" %}:{{catalogs}}
+                    </div>
+                    <div class="col">
+                        {% trans "Start station" %}:{{strat_station}}
+                    </div>
+                    <div class="col">
+                        {% trans "Ending station" %}:{{end_station}}
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#info" aria-expanded="false" aria-controls="info">
+                            点击此处按照站点显示详细信息
+                        </button>
+                    </div>
+                </div>
+                <div class="collapse" id="info">
+                    <table class="table tablesorter">
+                        <thead>
+                            <th>{% trans "Number of Station" %}</th><th>{% trans "Arriving time"%}</th><th>{% trans "Departure time"%}</th><th>{% trans "Staying time" %}</th>
+                            {% for x in class_train %}
+                                <th>{{x}}{% trans "Prices"%}(￥)</th>
+                            {% endfor %}
+                        </thead>
+                        <tbody>
+                            {% for x in station %}
+                                <tr>
+                                    <td>{{x.0}}</td><td>{{x.1}}</td><td>{{x.2}}</td><td>{{x.3}}</td>
+                                    {% for y in x.4 %}
+                                        <td>{{y}}</td>
+                                    {% endfor %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <!-- 需要看如何开放、删除、修改 -->
+                    <form class="" action="/trains/query_train/" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="pubtrainid" value="{{train_id}}">
+                    <a href="#"><button type="submit" class="btn btn-success">{% trans "Public this train"%}</button></a>
+
+                    </form>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#check_delete">
+                      {% trans "Delete this train" %}
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="check_delete" tabindex="-1" role="dialog" aria-labelledby="check_delete" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">{% trans "Delete check"%}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            {% trans "Are you sure you want to delete this train?"%}
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cancel"%}</button>
+                            <form class="" action="/trains/query_train/" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="deltrainid" value="{{train_id}}">
+                                <button type="submit" class="btn btn-danger">{% trans "Delete" %}</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                {% else %}
+                    {% trans "This train doesn't exist!" %}
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% block body %}
+<div class="container" style="margin-top: 3.5rem;">
+    <div class="card" >
+        <div class="card-header text-center" style="font-size:30px;background-color: #ee6a9b">
+            <p>{% trans "Search for booking history" %}</p>
+        </div>
+        <div class="card-body text-center">
+          <div class="container">
+              <form method="post">
+              <div class="row">
+                  {% csrf_token %}
+                     <div class="col">
+                       <label for="dateoftrain" class="sr-only">{% trans "Departure Date" %}</label>
+                       <input name="date" type="date" class="form-control" placeholder="{% trans 'Departure Date' %}" required>
+                     </div>
+                     <div class="col">
+                       <button type="submit" class="btn btn-warning">{% trans "Search Now" %}</button>
+                     </div>
+
+                </div>
+                </form>
+              </div>
+          </div>
+    </div>
+</div>
+    {% block answer %}
+    {% endblock %}
+{% endblock %}

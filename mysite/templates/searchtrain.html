@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% load i18n %}
+{% block body %}
+<div class="container" style="margin-top: 3.5rem;">
+    <div class="card" >
+    <div class="card-header text-center" style="font-size:30px;background-color: #ee6a9b">
+        <p>{% trans "Search for trains" %}</p>
+    </div>
+      <div class="card-body">
+      <form method="post">
+          {% csrf_token %}
+      {{fs}} {{ts}} {{date}}
+      <div class="row">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                    <div class="col">
+                      <label for="from" class="sr-only"> {% trans "Start" %}</label>
+                      <input type="text" placeholder="{% trans 'Start' %}" class="form-control" name="from" required autofocus>
+                    </div>
+                    <div class="col">
+                      <label for="destination" class="sr-only"> {% trans "Destination" %}</label>
+                      <input type="text" placeholder="{% trans 'Destination' %}" class="form-control" name="to" required>
+                    </div>
+                    <div class="col">
+                      <label for="dateoftrain" class="sr-only">{% trans "Departure Date" %}</label>
+                      <input name="date" type="date" class="form-control" placeholder="{% trans 'Departure Date' %}" required>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="" name="yzz">
+                          <label class="form-check-label" for="yzz">
+                            {% trans "Check this means you accept at most one time's getting off the train"%}
+                          </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--
+        <div class="col-3">
+          <div class="card" style="width:100%">
+            <div class="card-header">
+                <b>请选择火车类型</b>
+            </div>
+            <div class="card-body">
+                {% for x in catalogs %}
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" name="catalogs_checkbox" value="option1">
+                      <label class="form-check-label" for="catalogs_checkbox">{{x}}</label>
+                    </div>
+                {% endfor %}
+            </div>
+          </div>
+      </div>-->
+    </div>
+        <div class="row" style="margin-top:.5rem;">
+            <div class="col text-center">
+                <button type="submit" class="btn btn-warning">{% trans "Search Now"%}</button>
+            </div>
+        </div>
+        </form>
+      </div>
+    </div><!--/.navbar-collapse -->
+</div>
+    {% block answer %}
+    {% endblock %}
+{% endblock %}

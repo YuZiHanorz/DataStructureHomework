@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-12 10:59+0000\n"
+"POT-Creation-Date: 2018-06-12 15:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,8 +23,8 @@ msgid "Search results"
 msgstr "搜索结果"
 
 #: templates/AskTrain.html:14 templates/SeekTickets.html:80
-#: templates/buyhistory.html:77 templates/query_train.html:13
-#: templates/query_train.html:14
+#: templates/SeekTickets.html:148 templates/buyhistory.html:77
+#: templates/query_train.html:13 templates/query_train.html:14
 msgid "Train id"
 msgstr "火车id"
 
@@ -51,12 +51,14 @@ msgid "Number of Station"
 msgstr "车站数"
 
 #: templates/AskTrain.html:37 templates/SeekTickets.html:80
-#: templates/add_train_in_station.html:17 templates/buyhistory.html:77
+#: templates/SeekTickets.html:148 templates/add_train_in_station.html:17
+#: templates/buyhistory.html:77
 msgid "Arriving time"
 msgstr "到达时间"
 
 #: templates/AskTrain.html:37 templates/SeekTickets.html:80
-#: templates/add_train_in_station.html:17 templates/buyhistory.html:77
+#: templates/SeekTickets.html:148 templates/add_train_in_station.html:17
+#: templates/buyhistory.html:77
 msgid "Departure time"
 msgstr "出发时间"
 
@@ -64,8 +66,8 @@ msgstr "出发时间"
 msgid "Staying time"
 msgstr "停留时间"
 
-#: templates/AskTrain.html:39 templates/SeekTickets.html:103
-#: templates/add_train_in_station.html:19
+#: templates/AskTrain.html:39 templates/SeekTickets.html:97
+#: templates/SeekTickets.html:165 templates/add_train_in_station.html:19
 msgid "Prices"
 msgstr "价格"
 
@@ -85,7 +87,8 @@ msgstr "确认删除"
 msgid "Are you sure you want to delete this train?"
 msgstr "您真的确定要删除这班火车?"
 
-#: templates/AskTrain.html:80 templates/SeekTickets.html:127
+#: templates/AskTrain.html:80 templates/SeekTickets.html:121
+#: templates/SeekTickets.html:189
 msgid "Cancel"
 msgstr "取消"
 
@@ -162,34 +165,41 @@ msgstr "还有"
 msgid "seconds rest"
 msgstr "秒剩余"
 
-#: templates/SeekTickets.html:80 templates/buyhistory.html:77
+#: templates/SeekTickets.html:80 templates/SeekTickets.html:148
+#: templates/buyhistory.html:77
 msgid "Train catalogs"
 msgstr "火车类型"
 
-#: templates/SeekTickets.html:80 templates/buyhistory.html:77
+#: templates/SeekTickets.html:80 templates/SeekTickets.html:148
+#: templates/buyhistory.html:77
 msgid "Starting station"
 msgstr "起始站"
 
-#: templates/SeekTickets.html:80 templates/buyhistory.html:77
-#: templates/searchtrain.html:23 templates/searchtrain.html:24
+#: templates/SeekTickets.html:80 templates/SeekTickets.html:148
+#: templates/buyhistory.html:77 templates/searchtrain.html:23
+#: templates/searchtrain.html:24
 msgid "Destination"
 msgstr "目的地"
 
-#: templates/SeekTickets.html:100
+#: templates/SeekTickets.html:94 templates/SeekTickets.html:162
 msgid "remaing"
 msgstr "剩余"
 
-#: templates/SeekTickets.html:111
+#: templates/SeekTickets.html:105 templates/SeekTickets.html:173
 msgid "Buy now"
 msgstr "立即购买"
 
-#: templates/SeekTickets.html:116
+#: templates/SeekTickets.html:110 templates/SeekTickets.html:178
 msgid "Please choose the amount you want to buy"
 msgstr "请选择购买的数量"
 
-#: templates/SeekTickets.html:133
+#: templates/SeekTickets.html:127 templates/SeekTickets.html:195
 msgid "Submit!"
 msgstr "提交"
+
+#: templates/SeekTickets.html:144
+msgid "Search result with changing trains"
+msgstr "带中转的搜索结果"
 
 #: templates/Signupadmin.html:24 templates/signup.html:14
 msgid "register now"
@@ -438,7 +448,7 @@ msgid "Please enter Trainid"
 msgstr "请输入trainid"
 
 #: templates/query_train.html:17 templates/searchtickets.html:19
-#: templates/searchtrain.html:62
+#: templates/searchtrain.html:64
 msgid "Search Now"
 msgstr "搜索"
 
@@ -455,6 +465,10 @@ msgstr "搜索车次"
 msgid "Start"
 msgstr "始发地"
 
-#: templates/searchtrain.html:35
-msgid "Check this means you accept at most one time's getting off the train"
-msgstr "勾选此项代表你接受最多中转一次的火车"
+#: templates/searchtrain.html:36
+msgid ""
+"Check this means you accept at most one time's getting off the train and we "
+"will give you a pair of trains which will let you travel with the shortest "
+"time."
+msgstr ""
+"勾选此项代表你接受最多中转一次的火车，我们将向你提供最短中转时间的一对车次。"

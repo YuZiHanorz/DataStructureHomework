@@ -178,9 +178,9 @@ def signupadmin(request):
                 if info != '-1':
                     return HttpResponseRedirect(reverse('index'))
             else:
-                messages.error(request, '你的IP地址不在大陆，请重试或者退出')
+                messages.error(request, 'IP unacceptable')
         else:
-            messages.error(request, 'Invalid reCAPTCHA. Please try again.')
+            messages.error(request, '请正确填写验证码。')
     context['login_name'] = userid
     context['authority'] = userpv
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')

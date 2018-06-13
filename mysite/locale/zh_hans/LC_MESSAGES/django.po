@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 13:03+0000\n"
+"POT-Creation-Date: 2018-06-13 13:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -223,7 +223,7 @@ msgstr "显示用户信息"
 msgid "register now"
 msgstr "注册"
 
-#: templates/Signupadmin.html:27 templates/about.html:17
+#: templates/Signupadmin.html:27 templates/about.html:19
 #: templates/signup.html:17
 msgid "Name"
 msgstr "姓名"
@@ -250,33 +250,33 @@ msgstr "这里"
 msgid "to log in"
 msgstr "以登录"
 
-#: templates/about.html:10 templates/index.html:149
+#: templates/about.html:12 templates/index.html:149
 msgid "About us"
 msgstr "关于我们"
 
-#: templates/about.html:13
+#: templates/about.html:15
 msgid ""
 "We are for student of ACM honored class in SJTU, and this is a page as our "
 "homework."
 msgstr "我们是来自上海交通大学ACM班的学生，这个网站是我们的作业。"
 
-#: templates/about.html:17
+#: templates/about.html:19
 msgid "Work Done"
 msgstr "负责内容"
 
-#: templates/about.html:20
+#: templates/about.html:22
 msgid "Web Page"
 msgstr "网页"
 
-#: templates/about.html:21
+#: templates/about.html:23
 msgid "Link of the HTML with the back programme"
 msgstr "前后端连接"
 
-#: templates/about.html:22
+#: templates/about.html:24
 msgid "test code (the activities concerns users)"
 msgstr "后端（与用户有关部分）"
 
-#: templates/about.html:23
+#: templates/about.html:25
 msgid "test code"
 msgstr "后端"
 
@@ -442,6 +442,10 @@ msgstr "搜索车次"
 #: templates/layout.html:78
 msgid "Log out"
 msgstr "登出"
+
+#: templates/layout.html:99
+msgid "Operation Success!"
+msgstr "操作成功！"
 
 #: templates/login.html:14
 msgid "Please log in"

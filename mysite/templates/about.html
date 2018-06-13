@@ -5,25 +5,36 @@
 
 <div class="container">
 <img src="{% static  'train.png' %}" alt="train" class="train-animation">
-<div class="card card-default" style="margin-top:3rem;">
-	<div class="card-heading">
-		<h3 class="card-title">{% trans "About us" %} </h3>
+<div class="row">
+	<div class="col-9">
+		<div class="card card-default" style="margin-top:3rem;">
+			<div class="card-heading">
+				<h3 class="card-title">{% trans "About us" %} </h3>
+			</div>
+			<div class="card-body">
+				{% trans "We are for student of ACM honored class in SJTU, and this is a page as our homework." %}
+			</div>
+			<table class="table table-hover">
+				<thead>
+					<th> {% trans "Name" %} </th><th> {% trans "Work Done" %}</th>
+				</thead>
+				<tbody>
+					<tr><td>陈伟哲</td><td>{% trans "Web Page" %}</td></tr>
+					<tr><td>邓伟信</td><td>{% trans "Link of the HTML with the back programme" %}</td></tr>
+		        	<tr><td>李照宇</td><td>{% trans "test code (the activities concerns users)" %}</td></tr>
+		        	<tr><td>余子涵</td><td>{% trans "test code" %} </td></tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	<div class="card-body">
-		{% trans "We are for student of ACM honored class in SJTU, and this is a page as our homework." %}
+	<div class="col-3">
+		<audio controls="controls" autoplay="autoplay">
+	  		<source src="/static/taf.mp3" type="audio/mpeg" />
+			Your browser does not support the audio element.
+		</audio>
 	</div>
-	<table class="table table-hover">
-		<thead>
-			<th> {% trans "Name" %} </th><th> {% trans "Work Done" %}</th>
-		</thead>
-		<tbody>
-			<tr><td>陈伟哲</td><td>{% trans "Web Page" %}</td></tr>
-			<tr><td>邓伟信</td><td>{% trans "Link of the HTML with the back programme" %}</td></tr>
-        	<tr><td>李照宇</td><td>{% trans "test code (the activities concerns users)" %}</td></tr>
-        	<tr><td>余子涵</td><td>{% trans "test code" %} </td></tr>
-		</tbody>
-	</table>
 </div>
+
 </div>
 
 {%endblock%}

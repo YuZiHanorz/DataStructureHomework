@@ -8,10 +8,10 @@
             </div>
             <div class="card-body">
                 <h1>{% trans "Please enter Userid"%}</h1>
-                <form method="post" action="/trains/query_train/">
+                <form method="post">
                     {%csrf_token%}
                 <label for="trainid" class="sr-only">User id</label>
-                <input type="text" name="trainid" class="form-control" placeholder="User id" required autofocus>
+                <input type="text" name="userid" class="form-control" placeholder="User id" required autofocus>
                 <div class="row" style="margin-top: .5rem;">
                     <div class="col text-center">
                         <button type="submit" class="btn btn-warning">{% trans "Change Now" %}</button>

@@ -88,7 +88,7 @@
                     <td style="display:none">{{x.0}}</td><td style="display:none">{{x.1}}</td><td style="display:none">{{x.2}}</td><td style="display:none">{{x.3}}</td><td style="display:none">{{x.4}}</td><td style="display:none">{{x.5}}</td>
                     <td colspan="5">
                             <div class="collapse" id="tickets_info{{x.0}}" class="accordion-body">
-                                {% for a in x.6 %}
+                                {% for n1, a in x.6 %}
                                 <p><div class="row" style="text-align:center;">
                                     <div class="col">
                                         {{a.0}}{% trans "remaing" %}：{{a.1}}
@@ -98,12 +98,13 @@
                                     </div>
                                     <div class="col">
                                     {% if a.1 > '0' %}
-                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn">
+                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn{{n1}}">
                                     {% else %}
-                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn" disabled>
+                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn{{n1}}
+                                        " disabled>
                                     {%endif %}
                                        {% trans "Buy now" %} </button>
-                                       <div class="modal fade" id="buyn" tabindex="-1" role="dialog" aria-labelledby="buyn" aria-hidden="true">
+                                       <div class="modal fade" id="buyn{{n1}}" tabindex="-1" role="dialog" aria-labelledby="buyn{{n1}}" aria-hidden="true">
                                          <div class="modal-dialog modal-dialog-centered" role="document">
                                            <div class="modal-content">
                                              <div class="modal-header">
@@ -157,7 +158,7 @@
                     <td style="display:none">{{x.0}}</td><td style="display:none">{{x.1}}</td><td style="display:none">{{x.2}}</td><td style="display:none">{{x.3}}</td><td style="display:none">{{x.4}}</td><td style="display:none">{{x.5}}</td>
                     <td colspan="5">
                             <div class="collapse" id="tickets_info{{x.0}}" class="accordion-body">
-                                {% for a in x.6 %}
+                                {% for n1, a in x.6 %}
                                 <p><div class="row" style="text-align:center;">
                                     <div class="col">
                                         {{a.0}}{% trans "remaing" %}：{{a.1}}
@@ -167,12 +168,12 @@
                                     </div>
                                     <div class="col">
                                     {% if a.1 > '0' %}
-                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn">
+                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn{{n1}}">
                                     {% else %}
-                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn" disabled>
+                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn{{n1}}" disabled>
                                     {%endif %}
                                        {% trans "Buy now" %} </button>
-                                       <div class="modal fade" id="buyn" tabindex="-1" role="dialog" aria-labelledby="buyn" aria-hidden="true">
+                                       <div class="modal fade" id="buyn{{n1}}" tabindex="-1" role="dialog" aria-labelledby="buyn{{n1}}" aria-hidden="true">
                                          <div class="modal-dialog modal-dialog-centered" role="document">
                                            <div class="modal-content">
                                              <div class="modal-header">

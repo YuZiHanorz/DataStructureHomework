@@ -30,7 +30,7 @@ def index(request):
             date = request.POST.get('date')
             class_name = request.POST.get('class_name')
 
-            print('DIG BUG:', fr)
+            print('Buying:', ' '.join((userid, num_buy, trainid, fr, to, date, class_name)))
 
             lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
             dataInput = ctypes.create_string_buffer(' '.join((userid, num_buy, trainid, fr, to, date, class_name)).encode('UTF-8'))
@@ -62,6 +62,8 @@ def index(request):
 
         print(info)
 
+        col = 0
+
         if info != '0':
 
             Trains = []
@@ -84,7 +86,8 @@ def index(request):
                     price.append(ticket[p + 1])
                     price.append(str(round(float(ticket[p + 2]))))
                     p += 3
-                    class_price.append(price)
+                    col += 1
+                    class_price.append((col, price))
                 x.append(class_price)
                 Trains.append(x)
             print(Trains)
@@ -125,7 +128,8 @@ def index(request):
                         price.append(ticket[p + 1])
                         price.append(str(round(float(ticket[p + 2]))))
                         p += 3
-                        class_price.append(price)
+                        col += 1
+                        class_price.append((col, price))
                     x.append(class_price)
                     Trains1.append(x)
                 print(Trains1)
@@ -143,6 +147,30 @@ def buy_history(request):
     if request.method == 'POST':
         userid = context['login_name']
         date = request.POST.get('date')
+            
+        trainid = request.POST.get('trainid')
+        if trainid != None:
+            print('returning')
+
+            userid = context['login_name']
+            num_ret = request.POST.get('num_ret')
+            fr = request.POST.get('trainfr')
+            to = request.POST.get('trainto')
+            date = request.POST.get('date')
+            class_name = request.POST.get('class_name')
+
+            lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
+            dataInput = ctypes.create_string_buffer(' '.join((userid, num_ret, trainid, fr, to, date, class_name)).encode('UTF-8'))
+            dataOutput = ctypes.create_string_buffer(10)
+            inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
+            outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
+            lib.refundTicket(inputPointer, outputPointer)
+            info = dataOutput.value.decode('UTF-8')
+
+            print(info)
+
+            if info == '1':
+                return HttpResponseRedirect(reverse('buy_history'))
 
         lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
         dataInput = ctypes.create_string_buffer(' '.join((userid, date, 'GCDZTK')).encode('UTF-8'))
@@ -156,6 +184,8 @@ def buy_history(request):
             return render(request, "buyhistory.html", context)
 
         print(info)
+
+        col = 0
 
         Historys = []
         for item in info.split('|'):
@@ -177,10 +207,12 @@ def buy_history(request):
                 price.append(ticket[p + 1])
                 price.append(str(round(float(ticket[p + 2]))))
                 p += 3
-                class_price.append(price)
+                col += 1
+                class_price.append((col, price))
             x.append(class_price)
             Historys.append(x)
         print(Historys)
         context['Historys'] = Historys
+        context['date'] = date
 
     return render(request, "buyhistory.html", context)

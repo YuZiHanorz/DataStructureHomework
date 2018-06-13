@@ -88,17 +88,16 @@
                     <td colspan="5">
 
                             <div class="collapse" id="tickets_info{{x.0}}" class="accordion-body">
-                                {% for a in x.6 %}
+                                {% for n1, a in x.6 %}
                                 <p><li> {{a.0}}{% trans "Bought" %}：{{a.1}} </li><li> {{a.0}}{% trans "Single Prices"%}：￥{{a.2}}</li>
                                     <li>
-                                    <a href="http://www.baidu.com">
                                         {% if a.1 > '0' %}
-                                            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn">
+                                            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn{{n1}}">
                                         {% else %}
-                                            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn" disabled>
+                                            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn{{n1}}" disabled>
                                         {%endif %}
                                            {% trans "Return now" %} </button>
-                                           <div class="modal fade" id="buyn" tabindex="-1" role="dialog" aria-labelledby="buyn" aria-hidden="true">
+                                           <div class="modal fade" id="buyn{{n1}}" tabindex="-1" role="dialog" aria-labelledby="buyn{{n1}}" aria-hidden="true">
                                              <div class="modal-dialog modal-dialog-centered" role="document">
                                                <div class="modal-content">
                                                  <div class="modal-header">
@@ -110,7 +109,7 @@
                                                 <form method="post">
                                                     {%csrf_token%}
                                                  <div class="modal-body">
-                                                   <input type="number" name="num_buy" class="form-control" min="1" max="100" autofocus required>
+                                                   <input type="number" name="num_ret" class="form-control" min="1" max="100" autofocus required>
                                                  </div>
                                                  <div class="modal-footer">
                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cancel" %}</button>

@@ -236,6 +236,31 @@ def cinfo(request):
     return render(request, 'ChangeInfo.html', context)
 
 def privilege(request):
+    context = {}
+    userid = getServerSideCookie(request, 'userid', '0')
+    userpv = getServerSideCookie(request, 'userpv', '0')
+
+    if userpv != '2':
+        return HttpResponseRedirect(reverse('index'))
+
+    context['login_name'] = userid
+    context['authority'] = userpv
+    context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
+
+    if request.method == 'POST':
+        opuserid = request.POST.get('userid')
+
+        lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
+        dataInput = ctypes.create_string_buffer(' '.join((userid, opuserid, '2')).encode('UTF-8'))
+        dataOutput = ctypes.create_string_buffer(1000)
+        inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
+        outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
+        lib.userModifyPrivilege(inputPointer, outputPointer)
+        info = dataOutput.value.decode('UTF-8')
+
+        if info == '1':
+            return HttpResponseRedirect(reverse('index'))
+
     return render(request, 'Privilege.html', context)
 
 def showinfo(request):

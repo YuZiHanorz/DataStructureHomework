@@ -14,11 +14,11 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+        <img class="first-slide" src="/static/surprise.png" alt="First slide">
         <div class="container">
           <div class="carousel-caption text-left">
-            <h1>{% trans "Breaking!"%}</h1>
-            <p>{% trans "You now have the chance to register an account with admin's privilege" %}</p>
+            <h1 style="color: rgb(25, 81, 205)">{% trans "Breaking!"%}</h1>
+            <p style="color: rgb(25, 81, 205)">{% trans "You now have the chance to register an account with admin's privilege" %}</p>
             <p><a class="btn btn-lg btn-primary" href="/signup_for_admin/" role="button">{% trans "Sign up now!" %}</a></p>
           </div>
         </div>
@@ -26,19 +26,27 @@
       <div class="carousel-item">
         <img class="second-slide" src="/static/train_station.jpg" alt="Second slide">
         <div class="container">
-          <div class="carousel-caption">
-            <h1>{% trans "Easy! Quick! Stable!" %}</h1>
-            <p>{% trans "Our plantform is very easy to use with directions everywhere. We also offer you an enjoyable experience during using our system." %}</p>
+          <div class="carousel-caption" >
+            <div class="card" style="background:#676767; opacity:0.85">
+                <div class="card-body" >
+                    <h1 style="color: rgb(168, 136, 255)">{% trans "Easy! Quick! Stable!" %}</h1>
+                    <p style="color: rgb(168, 136, 255)">{% trans "Our plantform is very easy to use with directions everywhere. We also offer you an enjoyable experience during using our system." %}</p>
+                </div>
+            </div>
+
             <!--<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>-->
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="third-slide" src="/static/github.png" alt="Third slide">
+        <img class="third-slide" src="/static/git.jpg" alt="Third slide">
         <div class="container">
-          <div class="carousel-caption text-right">
-            <h1>{% trans "Open source" %}</h1>
-            <p>{% trans "Safe, Stable"%}</p>
+          <div class="carousel-caption text-right" >
+
+                    <h1 style="color: rgb(207, 101, 219)">{% trans "Open source" %}</h1>
+                    <!--<p style="color: rgb(165, 173, 35)">{% trans "Safe, Stable"%}</p>-->
+
+
             <p><a class="btn btn-lg btn-primary" href="https://github.com/laonahongchen/DataStructureHomework" role="button">{% trans "Browse Code" %}</a></p>
           </div>
         </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 12:35+0000\n"
+"POT-Creation-Date: 2018-06-13 13:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,7 +250,7 @@ msgstr "这里"
 msgid "to log in"
 msgstr "以登录"
 
-#: templates/about.html:10 templates/index.html:141
+#: templates/about.html:10 templates/index.html:149
 msgid "About us"
 msgstr "关于我们"
 
@@ -337,57 +337,57 @@ msgstr "你现在可以有机会创建管理员账号（只要你是大陆ip）"
 msgid "Sign up now!"
 msgstr "现在注册"
 
-#: templates/index.html:30
+#: templates/index.html:32
 msgid "Easy! Quick! Stable!"
 msgstr "简单!快速！稳定！"
 
-#: templates/index.html:31
+#: templates/index.html:33
 msgid ""
 "Our plantform is very easy to use with directions everywhere. We also offer "
 "you an enjoyable experience during using our system."
 msgstr "我们的页面指示清晰，任何人都可以轻松使用。我们希望提供一个愉快的体验。"
 
-#: templates/index.html:40
+#: templates/index.html:46
 msgid "Open source"
 msgstr "开源"
 
-#: templates/index.html:41
+#: templates/index.html:47
 msgid "Safe, Stable"
 msgstr "安全，稳定"
 
-#: templates/index.html:42
+#: templates/index.html:50
 msgid "Browse Code"
 msgstr "浏览源码"
 
-#: templates/index.html:68
+#: templates/index.html:76
 msgid "Search tickets"
 msgstr "搜索车票"
 
-#: templates/index.html:69
+#: templates/index.html:77
 msgid "Search for the remaining ticketes"
 msgstr "搜索余票"
 
-#: templates/index.html:70 templates/index.html:76 templates/index.html:83
+#: templates/index.html:78 templates/index.html:84 templates/index.html:91
 msgid "View details"
 msgstr "查看详情"
 
-#: templates/index.html:74
+#: templates/index.html:82
 msgid "Search booking history"
 msgstr "查询订票历史"
 
-#: templates/index.html:75
+#: templates/index.html:83
 msgid "Search for what you have booked"
 msgstr "查看你的订票信息"
 
-#: templates/index.html:81
+#: templates/index.html:89
 msgid "Search with tranid"
 msgstr "用trainid搜索"
 
-#: templates/index.html:82
+#: templates/index.html:90
 msgid "Just for fun and for those who know very well what does this mean."
 msgstr "仅供娱乐，供明白这是什么的人点击（慎入）"
 
-#: templates/index.html:140
+#: templates/index.html:148
 msgid "Back to top"
 msgstr "返回顶部"
 
@@ -476,7 +476,7 @@ msgid "Please enter Trainid"
 msgstr "请输入trainid"
 
 #: templates/query_train.html:17 templates/searchtickets.html:19
-#: templates/searchtrain.html:64
+#: templates/searchtrain.html:48
 msgid "Search Now"
 msgstr "搜索"
 

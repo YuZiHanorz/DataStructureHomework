@@ -201,41 +201,68 @@ def cinfo(request):
     if userid == None:
         return HttpResponseRedirect(reverse('index'))
 
-    context['login_name'] = userid
-    context['authority'] = userpv
-    context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
-
     if request.method == 'POST':
-        username = request.POST.get('username')
-        emailaddress = request.POST.get('emailaddress')
-        phonenumber = request.POST.get('phonenumber')
-        password = request.POST.get('password')
 
+        email = request.POST.get('email')
+        name = request.POST.get('name')
+        oldpwd = request.POST.get('oldpwd')
+        pwd = request.POST.get('pwd')
+        phone = request.POST.get('phone')
+
+        password = oldpwd
         lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
-        dataInput = ctypes.create_string_buffer(' '.join((userid, username, password, emailaddress, phonenumber)).encode('UTF-8'))
+        dataInput = ctypes.create_string_buffer(' '.join((userid, password)).encode('UTF-8'))
         dataOutput = ctypes.create_string_buffer(10)
         inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
         outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
-        lib.userModifyProfile(inputPointer, outputPointer)
-        info = dataOutput.value.decode('UTF-8')
+        lib.userLogin(inputPointer, outputPointer)
+        info = dataOutput.value.decode('UTF-8') 
 
-        if info != '-1':
+        if info == '1':
+
+            if pwd == '':
+                pwd = oldpwd 
+
+            lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
+            dataInput = ctypes.create_string_buffer(' '.join((userid, name, pwd, email, phone)).encode('UTF-8'))
+            dataOutput = ctypes.create_string_buffer(10)
+            inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
+            outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
+            lib.userModifyProfile(inputPointer, outputPointer)
+            info = dataOutput.value.decode('UTF-8')
+
             return HttpResponseRedirect(reverse('index'))
 
     return render(request, 'ChangeInfo.html', context)
 
 def showinfo(request):
+    context = {}
     userid = getServerSideCookie(request, 'userid', '0')
     userpv = getServerSideCookie(request, 'userpv', '0')
 
-    context111 = {}
-    context111['login_name'] = userid
-    context111['authority'] = userpv
-    context111['style'] = getServerSideCookie(request, 'tmpstyle', '1')
-    context111['email'] = '1@1.com'
-    context111['phone'] = '123'
-    context111['name'] = 'abc'
-    return render(request, 'ShowInfo.html', context111)
+    if userid == None:
+        return HttpResponseRedirect(reverse('index'))
+
+    context['login_name'] = userid
+    context['authority'] = userpv
+    context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
+
+    lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
+    dataInput = ctypes.create_string_buffer(userid.encode('UTF-8'))
+    dataOutput = ctypes.create_string_buffer(1000)
+    inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
+    outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
+    lib.userQueryProfile(inputPointer, outputPointer)
+    info = dataOutput.value.decode('UTF-8')
+
+    print(info)
+    username, password, emailaddress, phonenumber, userpv = info.split()
+
+    context['email'] = emailaddress
+    context['phone'] = phonenumber
+    context['name'] = username
+
+    return render(request, 'ShowInfo.html', context)
 
 def page_not_found(request):
     context = {}

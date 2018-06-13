@@ -9,7 +9,7 @@
 
     <div class="container" style="margin-top: 4rem;">
 
-      <form class="form-signin" method="post" action="/change_info/">
+      <form class="form-signin">
         {% csrf_token %}
         <h2 class="form-signin-heading">{% trans "Change user info" %}</h2>
         <h5>{% trans "Email address" %}</h5>
@@ -22,7 +22,9 @@
         <label for="inputPhone" class="sr-only">{% trans "Phone Number" %}</label>
         <input type="tel" name="phonenumber" class="form-control" placeholder="{{phone}}" disabled>
 
+        <a href="/change_info/">
         <button class="btn btn-lg btn-primary btn-block" type="button">{% trans "Change user info" %}</button>
+        </a>
 
       </form>
 

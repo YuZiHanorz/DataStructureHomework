@@ -30,6 +30,8 @@ def index(request):
             date = request.POST.get('date')
             class_name = request.POST.get('class_name')
 
+            print('DIG BUG:', fr)
+
             lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
             dataInput = ctypes.create_string_buffer(' '.join((userid, num_buy, trainid, fr, to, date, class_name)).encode('UTF-8'))
             dataOutput = ctypes.create_string_buffer(10)
@@ -48,9 +50,10 @@ def index(request):
         context['fs'] = fs
         context['ts'] = ts
         context['date'] = date
-
+        ask = ' '.join((fs, ts, date, 'GCDZTK'))
+        
         lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
-        dataInput = ctypes.create_string_buffer(' '.join((fs, ts, date, 'GCDZTK')).encode('UTF-8'))
+        dataInput = ctypes.create_string_buffer(ask.encode('UTF-8'))
         dataOutput = ctypes.create_string_buffer(50000)
         inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
         outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
@@ -59,34 +62,74 @@ def index(request):
 
         print(info)
 
-        if info == '0':
-            return render(request, 'SeekTickets.html', context)
+        if info != '0':
 
-        Trains = []
-        for item in info.split('|'):
-            ticket = item.split()
-            x = []
-            x.append(ticket[0])
-            x.append(ticket[1])
-            x.append(ticket[2])
-            x.append(ticket[4])
-            x.append(ticket[5])
-            x.append(ticket[7])
-            class_price = []
-            p = 8
-            while 1:
-                if p == len(ticket):
-                    break
-                price = []
-                price.append(ticket[p])
-                price.append(ticket[p + 1])
-                price.append(str(round(float(ticket[p + 2]))))
-                p += 3
-                class_price.append(price)
-            x.append(class_price)
-            Trains.append(x)
-        print(Trains)
-        context['Trains'] = Trains
+            Trains = []
+            for item in info.split('|'):
+                ticket = item.split()
+                x = []
+                x.append(ticket[0])
+                x.append(ticket[1])
+                x.append(ticket[2])
+                x.append(ticket[4])
+                x.append(ticket[5])
+                x.append(ticket[7])
+                class_price = []
+                p = 8
+                while 1:
+                    if p == len(ticket):
+                        break
+                    price = []
+                    price.append(ticket[p])
+                    price.append(ticket[p + 1])
+                    price.append(str(round(float(ticket[p + 2]))))
+                    p += 3
+                    class_price.append(price)
+                x.append(class_price)
+                Trains.append(x)
+            print(Trains)
+            context['Trains'] = Trains
+
+        transfer = request.POST.get('transfer')
+        if transfer == 'yes':
+            context['transfer'] = '1'
+
+            lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
+            dataInput = ctypes.create_string_buffer(ask.encode('UTF-8'))
+            dataOutput = ctypes.create_string_buffer(50000)
+            inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
+            outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
+            lib.queryTransfer(inputPointer, outputPointer)
+            info = dataOutput.value.decode('UTF-8')
+
+            print(info)
+
+            if info != '0':
+                Trains1 = []
+                for item in info.split('|'):
+                    ticket = item.split()
+                    x = []
+                    x.append(ticket[0])
+                    x.append(ticket[1])
+                    x.append(ticket[2])
+                    x.append(ticket[4])
+                    x.append(ticket[5])
+                    x.append(ticket[7])
+                    class_price = []
+                    p = 8
+                    while 1:
+                        if p == len(ticket):
+                            break
+                        price = []
+                        price.append(ticket[p])
+                        price.append(ticket[p + 1])
+                        price.append(str(round(float(ticket[p + 2]))))
+                        p += 3
+                        class_price.append(price)
+                    x.append(class_price)
+                    Trains1.append(x)
+                print(Trains1)
+                context['Trains1'] = Trains1
 
     return render(request, 'SeekTickets.html', context)
 

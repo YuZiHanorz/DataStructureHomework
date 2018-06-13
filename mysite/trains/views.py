@@ -224,6 +224,17 @@ def query_train(request):
             context['class_train'] = class_train
             context['station'] = station
 
+            lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
+            dataInput = ctypes.create_string_buffer(trainid.encode('UTF-8'))
+            dataOutput = ctypes.create_string_buffer(10)
+            inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
+            outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
+            lib.saleTrainStatus(inputPointer, outputPointer)
+            info = dataOutput.value.decode('UTF-8') 
+
+            context['publiced'] = info
+            print(info)
+
             #print(station)
 
         return render(request, 'AskTrain.html', context) 

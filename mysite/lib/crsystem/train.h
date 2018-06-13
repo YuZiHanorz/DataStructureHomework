@@ -87,10 +87,16 @@ struct train {
 		}
 	}
 
+	bool sale_train_status(bplus_tree<char> &find_train, bplus_tree<char> &location) {
+		if (besaled) {
+			return false;
+		}
+		return true;
+	}
 
 	bool sale_train(bplus_tree<char> &find_train, bplus_tree<char> &location) {
 		if (besaled) {
-			return false;;
+			return false;
 		}
 		besaled = true;
 
@@ -339,6 +345,19 @@ string add_train(const mystring<20> &id, const train& newtrain, bplus_tree<train
 
 	thetrain.insert(id, newtrain);
 	return "1";
+}
+
+string sale_train_status(const mystring<20> &id, bplus_tree<train> &thetrain, bplus_tree<char> &findtrain, bplus_tree<char> &loc)
+{
+	train pos;
+	if (thetrain.search(id, &pos) != 0) {
+		return "0";
+	}
+
+	if (pos.sale_train_status(findtrain, loc)) {
+		return "1";
+	}
+	else return "0";
 }
 
 string sale_train(const mystring<20> &id, bplus_tree<train> &thetrain, bplus_tree<char> &findtrain, bplus_tree<char> &loc)

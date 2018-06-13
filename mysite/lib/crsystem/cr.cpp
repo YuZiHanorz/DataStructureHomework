@@ -208,6 +208,13 @@ void saleTrain(char *it, char *info)
 	output(info, sale_train(id, thetrain, find_train, location));
 }
 
+void saleTrainStatus(char *it, char *info)
+{
+	openFile();
+	mystring<20> id = readTRAIN_ID(it);
+	output(info, sale_train_status(id, thetrain, find_train, location));
+}
+
 void queryTrain(char *it, char *info)
 {
 	openFile();
@@ -374,5 +381,10 @@ extern "C"
 	void modifyTrain(char *it, char *info)
 	{
 		CR::modifyTrain(it, info);
+	}
+
+	void saleTrainStatus(char *it, char *info)
+	{
+		CR::saleTrainStatus(it, info);
 	}
 }

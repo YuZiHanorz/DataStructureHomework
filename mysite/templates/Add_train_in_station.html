@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% load staticfiles %}
+{% load i18n %}
+{% block body %}
+<div class="container" style="margin-top:3.5rem;">
+    <div class="card">
+    <div class="card-header">
+        <h1>{% trans "You have complete"%}：67%</h1>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" style="width: 66%"></div>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form method="post" action="/trains/t/">
+      {% csrf_token %}
+            <table class="table">
+                <th>{% trans "Name of stations"%}</th><th>{% trans "Arriving time"%}</th><th>{% trans "Departure time"%}</th>
+                {% for x in class_train %}
+                    <th>{{x}}{% trans "Prices"%}(￥)</th>
+                {% endfor %}
+                {% for x in num_station %}
+                    <tr>
+                        <td><input type="text" name="name_station[{{x}}]" class="form-control" required></td>
+                        <td><input type="time" name="time_arriv[{{x}}]" class="form-control"></td>
+                        <td><input type="time" name="time_start[{{x}}]" class="form-control" required></td>
+                        {% for y in num_price %}
+                            <td><input type="number" name="price[{{x}}][{{y}}]" class="form-control" required></td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans "Submit and create the train!"%}</button>
+        </form>
+    </div>
+    </div>
+    <!--
+    <form style="margin-top: 70px;">
+        <div id="div">
+            <input type="button"  value="增加" onclick="addText()"/>
+        </div>
+    </form>
+-->
+</div>
+{% endblock %}

@@ -163,7 +163,7 @@ string file_buy_ticket(const mystring<20> &id, const int &intid, const int &num,
 			ticket newticket(train_id, loc1, loc2, date, pos.catalog, ret_date_loc1, pos.sta[loc1_pos].start, ret_date_loc2, pos.sta[loc2_pos].arrive, pos.num_price);
 			for (int i = 0; i < newticket.num_kind; ++i) {
 				newticket.ticket_kind[i] = pos.name_price[i];
-				for (int j = loc1_pos; j <= loc2_pos; ++j) {
+				for (int j = loc1_pos + 1; j <= loc2_pos; ++j) {
 					newticket.price_ticket_kind[i] += pos.sta[j].price[i];
 				}
 			}

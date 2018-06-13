@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% block headcss %}
+<link href="/static/boot41/docs/4.1/examples/sign-in/signin.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+    <div class="container" style="margin-top: 4rem;">
+
+      <form class="form-signin" method="post" action="/login/">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">{% trans "Please log in" %}</h2>
+        <label for="inputName" class="sr-only">{% trans "User name" %}</label>
+        <input type="text" name="userid" class="form-control" placeholder="trans UserID" required autofocus>
+        <div class="input-group-append">
+          <label for="inputPassword" class="sr-only">{% trans Password %}</label>
+          <input type="password" name="password" id="pass" class="form-control js-password-control" placeholder="{% trans 'Password' %}" required>
+        </div>
+
+        <div class="row">
+
+        <!--
+        <div class="checkbox col">
+          <label>
+            <input type="checkbox" value="remember-me" name="remember-me"> Remember me
+          </label>
+        </div> -->
+        <div class="col" id="btn">
+            <img src="/static/eye.png" alt="eye" style="height:1.5rem;">
+            <b>{% trans "Show password" %}</b>
+        </div>
+
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">{% trans "Sign in" %}</button>
+
+        <div class="card" style="margin-top: 1rem;">
+            <div class="card-body">
+                {% trans "No account? Click" %}<a href="/signup/">{% trans "here" %} </a> {% trans "to register" %}
+            </div>
+        </div>
+      </form>
+
+    </div> <!-- /container -->
+
+{% endblock %}
+
+{% block jsextends %}
+    <script src="/static/password.js"></script>
+{% endblock %}

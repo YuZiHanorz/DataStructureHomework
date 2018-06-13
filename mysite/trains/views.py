@@ -163,6 +163,9 @@ def query_train(request):
             outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
             lib.saleTrain(inputPointer, outputPointer)
             info = dataOutput.value.decode('UTF-8') 
+
+            # train open sale
+
             return HttpResponseRedirect(reverse('qt'))
 
         deltrainid = request.POST.get('deltrainid')
@@ -174,6 +177,9 @@ def query_train(request):
             outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
             lib.deleteTrain(inputPointer, outputPointer)
             info = dataOutput.value.decode('UTF-8') 
+
+            # train delete forever
+
             return HttpResponseRedirect(reverse('qt'))
 
         print(trainid)

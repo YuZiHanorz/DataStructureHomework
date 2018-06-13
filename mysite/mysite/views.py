@@ -39,6 +39,17 @@ def index(request):
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
 
+    login = getServerSideCookie(request, 'login')
+    if login != None:
+        messages.success(request, '您好，{}，欢迎回来！'.format(login))
+        request.session['login'] = None
+
+    register = getServerSideCookie(request, 'register')
+    if register != None:
+        name, id = register.split()
+        messages.success(request, '您好，{}，欢迎注册！您的用户ID为{}，请牢记。'.format(name, id))
+        request.session['register'] = None
+
     return render(request, 'index.html', context)
 
 def about(request):
@@ -94,8 +105,19 @@ def login(request):
 
         if info == '1':
             request.session['userid'] = userid
-            # I should query its privilege, but set to superroot for now
-            request.session['userpv'] = '2'
+
+            lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
+            dataInput = ctypes.create_string_buffer(userid.encode('UTF-8'))
+            dataOutput = ctypes.create_string_buffer(1000)
+            inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
+            outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
+            lib.userQueryProfile(inputPointer, outputPointer)
+            info = dataOutput.value.decode('UTF-8')
+            username, password, emailaddress, phonenumber, userpv = info.split()
+
+            request.session['userpv'] = userpv
+            request.session['login'] = username
+
             return HttpResponseRedirect(reverse('index'))
 
     context['login_name'] = userid
@@ -126,7 +148,8 @@ def signup(request):
         lib.userRegister(inputPointer, outputPointer)
         info = dataOutput.value.decode('UTF-8')
 
-        if info != '-1':
+        if info != '0':
+            request.session['register'] = ' '.join((username, info))
             return HttpResponseRedirect(reverse('index'))
 
     context['login_name'] = userid

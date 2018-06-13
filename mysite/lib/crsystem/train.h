@@ -256,7 +256,7 @@ struct train {
 		restTicket here, there;
 		if (theRestTicket.search(key, &here) != 0) {
 			for (int i = loc1_pos; i < loc2_pos; ++i) {
-				there.ticket[i][ticket_kind] -= num;
+				there.ticket[i][ticket_kind] += num;
 				if (there.ticket[i][ticket_kind] < 0)
 					return false;
 			}
@@ -265,7 +265,7 @@ struct train {
 		}
 		else {
 			for (int i = loc1_pos; i < loc2_pos; ++i) {
-				here.ticket[i][ticket_kind] -= num;
+				here.ticket[i][ticket_kind] += num;
 				if (here.ticket[i][ticket_kind] < 0)
 					return false;
 			}

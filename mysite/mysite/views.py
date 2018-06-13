@@ -216,12 +216,12 @@ def cinfo(request):
         inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
         outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
         lib.userLogin(inputPointer, outputPointer)
-        info = dataOutput.value.decode('UTF-8') 
+        info = dataOutput.value.decode('UTF-8')
 
         if info == '1':
 
             if pwd == '':
-                pwd = oldpwd 
+                pwd = oldpwd
 
             lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
             dataInput = ctypes.create_string_buffer(' '.join((userid, name, pwd, email, phone)).encode('UTF-8'))
@@ -234,6 +234,9 @@ def cinfo(request):
             return HttpResponseRedirect(reverse('index'))
 
     return render(request, 'ChangeInfo.html', context)
+
+def privilege(request):
+    return render(request, 'Privilege.html', context)
 
 def showinfo(request):
     context = {}

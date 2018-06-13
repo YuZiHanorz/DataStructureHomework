@@ -11,7 +11,7 @@
 
       <form class="form-signin">
         {% csrf_token %}
-        <h2 class="form-signin-heading">{% trans "Change user info" %}</h2>
+        <h2 class="form-signin-heading">{% trans "Show profile" %}</h2>
         <h5>{% trans "Email address" %}</h5>
         <label for="inputEmail" class="sr-only">{% trans "Email address" %}</label>
         <input type="email" name="emailaddress" class="form-control" value="{{email}}" disabled>

@@ -89,10 +89,10 @@
 
                             <div class="collapse" id="tickets_info{{x.0}}" class="accordion-body">
                                 {% for a in x.6 %}
-                                <p><li> {{a.0}}{% trans "Bought" %}：{{a.1}} </li><li> {{a.0}}{% trans " Single Prices"%}：￥{{a.2}}</li>
+                                <p><li> {{a.0}}{% trans "Bought" %}：{{a.1}} </li><li> {{a.0}}{% trans "Prices"%}：￥{{a.2}}</li>
                                     <li>
                                     <a href="http://www.baidu.com">
-                                    {% if a.1 > 0 %}
+                                    {% if a.1 > '0' %}
                                         <button type="button" class="btn btn-default btn-lg">
                                     {% else %}
                                         <button type="button" class="btn btn-default btn-lg" disabled>

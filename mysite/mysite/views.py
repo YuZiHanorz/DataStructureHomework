@@ -102,7 +102,7 @@ def login(request):
     context['authority'] = userpv
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
 
-    return render(request, 'Login.html', context)
+    return render(request, 'login.html', context)
 
 def signup(request):
     context = {}
@@ -133,7 +133,7 @@ def signup(request):
     context['authority'] = userpv
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
 
-    return render(request, 'Signup.html', context)
+    return render(request, 'signup.html', context)
 
 def signupadmin(request):
     #print(getip(request))

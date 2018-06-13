@@ -153,7 +153,7 @@ def buy_history(request):
         info = dataOutput.value.decode('UTF-8')
 
         if info == '0':
-            return render(request, "Buyhistory.html", context)
+            return render(request, "buyhistory.html", context)
 
         print(info)
 
@@ -183,4 +183,4 @@ def buy_history(request):
         print(Historys)
         context['Historys'] = Historys
 
-    return render(request, "Buyhistory.html", context)
+    return render(request, "buyhistory.html", context)

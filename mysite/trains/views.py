@@ -35,7 +35,7 @@ def index(request):
 
         return HttpResponseRedirect(reverse('train_add_1'))
 
-    return render(request, 'Add_train.html', context)
+    return render(request, 'add_train.html', context)
 
 def index1(request):
     context = {}
@@ -54,7 +54,7 @@ def index1(request):
 
         return HttpResponseRedirect(reverse('train_add_2'))
 
-    return render(request, "Add_train_in_class.html", context)
+    return render(request, "add_train_in_class.html", context)
 
 def timeFormat(s):
     if len(s) == 1:
@@ -141,7 +141,7 @@ def index2(request):
 
         return HttpResponseRedirect(reverse('index'))
 
-    return render(request, "Add_train_in_station.html", context)
+    return render(request, "add_train_in_station.html", context)
 
 def query_train(request):
     context = {}

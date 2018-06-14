@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-14 04:36+0000\n"
+"POT-Creation-Date: 2018-06-14 04:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -165,7 +165,7 @@ msgstr "还有"
 msgid "seconds rest"
 msgstr "秒剩余"
 
-#: templates/Privilege.html:29
+#: templates/Privilege.html:29 templates/layout.html:71
 msgid "Change Privilege"
 msgstr "更改权限"
 
@@ -438,11 +438,11 @@ msgstr "查询订票历史"
 msgid "Add train"
 msgstr "添加车次"
 
-#: templates/layout.html:71
+#: templates/layout.html:72
 msgid "Search for train"
 msgstr "搜索车次"
 
-#: templates/layout.html:78
+#: templates/layout.html:79
 msgid "Log out"
 msgstr "登出"
 

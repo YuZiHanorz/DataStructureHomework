@@ -10,6 +10,8 @@ from django.contrib import messages
 from urllib.request import urlopen
 from urllib.error import HTTPError
 
+from django.utils import translation
+
 import json
 import os
 import ctypes
@@ -34,7 +36,7 @@ def cstyle1(request):
     return HttpResponseRedirect(reverse('index'))
 
 def tozh(request):
-    request.session['_language'] = 'zh-CN'
+    request.session['_language'] = 'zh-hans'
     return HttpResponseRedirect(reverse('index'))
 
 def toen(request):
@@ -42,6 +44,7 @@ def toen(request):
     return HttpResponseRedirect(reverse('index'))
 
 def index(request):
+    #print(get_language(request))
     context = {}
     context['login_name'] = getServerSideCookie(request, 'userid', '0')
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
@@ -78,7 +81,7 @@ def about(request):
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
 
-    return render(request, 'About.html', context)
+    return render(request, 'about.html', context)
 
 def getip(request):
     if 'HTTP_X_FORWARDED_FOR' in request.META:

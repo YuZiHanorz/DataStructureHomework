@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-14 10:58+0000\n"
+"POT-Creation-Date: 2018-06-14 11:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -168,6 +168,10 @@ msgstr "请输入Userid"
 #: templates/Privilege.html:39
 msgid "Change Now"
 msgstr "更改用户权限"
+
+#: templates/SeekTickets.html:74 templates/buyhistory.html:74
+msgid "Type in the box below the table head to get specify results."
+msgstr "在表头下面的输入框输入以筛选结果。"
 
 #: templates/SeekTickets.html:80 templates/SeekTickets.html:150
 #: templates/buyhistory.html:77
@@ -389,6 +393,49 @@ msgstr "用trainid搜索"
 #: templates/index.html:112
 msgid "Just for fun and for those who know very well what does this mean."
 msgstr "仅供娱乐，供明白这是什么的人点击（慎入）"
+
+#: templates/index.html:125
+msgid "Safe"
+msgstr "安全"
+
+#: templates/index.html:125
+msgid "IP check with robot check makes this system safe."
+msgstr "IP检查和机器人检查保障系统安全。"
+
+#: templates/index.html:126
+msgid ""
+"We have used the recaptcha from GOOGLE with a IP check to check if you want "
+"to register for a super user. So all the super users will be true human with "
+"Chinese hearts."
+msgstr "我们使用了GOOGLE的验证码系统和IP检查每个想要试图注册管理员的人。这样使我们的管理员全是有着中国心的真人。"
+
+#: templates/index.html:137
+msgid "Special"
+msgstr "特殊"
+
+#: templates/index.html:137
+msgid "Not simple Bootstrap"
+msgstr "不是简单的Bootstrap"
+
+#: templates/index.html:138
+msgid ""
+"We have used customized Bootstrap instead of standard Bootstrap, so the page "
+"may seem a little more different from simple Bootstrap pages."
+msgstr "我们使用了定制的Bootstrap而不是普通的Bootstrap，所以页面和普通的Bootstrap略有不同。"
+
+#: templates/index.html:149
+msgid "Internationalization"
+msgstr "国际化"
+
+#: templates/index.html:149
+msgid "Not only English"
+msgstr "不止中文"
+
+#: templates/index.html:150
+msgid ""
+"Thanks to Django, you now have the opportunity to try page for both Chinese "
+"and English."
+msgstr "基于Django，我们现在提供中文和英文两种语言的服务。"
 
 #: templates/index.html:170
 msgid "Back to top"

@@ -122,11 +122,11 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <h2 class="featurette-heading">{% trans "Safe" %} <span class="text-muted">{% trans "IP check with robot check makes this system safe." %}</span></h2>
+        <p class="lead">{% trans "We have used the recaptcha from GOOGLE with a IP check to check if you want to register for a super user. So all the super users will be true human with Chinese hearts." %}</p>
       </div>
       <div class="col-md-5">
-        <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        <img class="featurette-image img-fluid mx-auto" src="/static/recap.gif" alt="recaptcha">
       </div>
     </div>
 
@@ -134,11 +134,11 @@
 
     <div class="row featurette">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <h2 class="featurette-heading">{% trans "Special" %}<span class="text-muted">{% trans "Not simple Bootstrap" %}</span></h2>
+        <p class="lead">{% trans "We have used customized Bootstrap instead of standard Bootstrap, so the page may seem a little more different from simple Bootstrap pages." %}</p>
       </div>
       <div class="col-md-5 order-md-1">
-        <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        <img class="featurette-image img-fluid mx-auto" src="/static/boots.png" alt="bootstrap4">
       </div>
     </div>
 
@@ -146,11 +146,11 @@
 
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        <h2 class="featurette-heading">{% trans "Internationalization" %} <span class="text-muted">{% trans "Not only English" %}</span></h2>
+        <p class="lead">{% trans "Thanks to Django, you now have the opportunity to try page for both Chinese and English." %}</p>
       </div>
       <div class="col-md-5">
-        <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        <img class="featurette-image img-fluid mx-auto" src="/static/inter.jpg" alt="Internationalization">
       </div>
     </div>
 
@@ -171,7 +171,4 @@
         <p> <a href="/about/">{% trans "About us" %}</a> </p>
     </div>
 </footer>
-{% endblock %}
-{% block jsextends %}
-    <script src="/static/boot4/assets/js/vendor/holder.min.js"></script>
 {% endblock %}

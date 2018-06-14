@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-14 05:29+0000\n"
+"POT-Creation-Date: 2018-06-14 10:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -157,7 +157,7 @@ msgstr "还有"
 msgid "seconds rest"
 msgstr "秒剩余"
 
-#: templates/Privilege.html:29 templates/layout.html:78
+#: templates/Privilege.html:29 templates/layout.html:80
 msgid "Change Privilege"
 msgstr "更改权限"
 
@@ -206,7 +206,7 @@ msgstr "提交"
 msgid "Search result with changing trains"
 msgstr "带中转的搜索结果"
 
-#: templates/ShowInfo.html:35 templates/layout.html:73
+#: templates/ShowInfo.html:35 templates/layout.html:75
 msgid "Show profile"
 msgstr "显示用户信息"
 
@@ -414,43 +414,43 @@ msgstr "切换风格"
 msgid "Page Style"
 msgstr "页面风格"
 
-#: templates/layout.html:52
+#: templates/layout.html:53
 msgid "Square"
 msgstr "方角"
 
-#: templates/layout.html:54
+#: templates/layout.html:55
 msgid "Rounded"
 msgstr "圆角"
 
-#: templates/layout.html:57
+#: templates/layout.html:58
 msgid "Language"
 msgstr "语言"
 
-#: templates/layout.html:66
+#: templates/layout.html:68
 msgid "login now"
 msgstr "现在登录"
 
-#: templates/layout.html:67
+#: templates/layout.html:69
 msgid "sign up now"
 msgstr "现在注册"
 
-#: templates/layout.html:71
+#: templates/layout.html:73
 msgid "User id:"
 msgstr "你的User id:"
 
-#: templates/layout.html:74 templates/searchtickets.html:29
+#: templates/layout.html:76 templates/searchtickets.html:29
 msgid "Search for booking history"
 msgstr "查询订票历史"
 
-#: templates/layout.html:77
+#: templates/layout.html:79
 msgid "Add train"
 msgstr "添加车次"
 
-#: templates/layout.html:79
+#: templates/layout.html:81
 msgid "Search for train"
 msgstr "搜索车次"
 
-#: templates/layout.html:86
+#: templates/layout.html:88
 msgid "Log out"
 msgstr "登出"
 

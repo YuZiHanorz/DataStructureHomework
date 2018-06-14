@@ -89,42 +89,50 @@
 
                             <div class="collapse" id="tickets_info{{x.0}}" class="accordion-body">
                                 {% for n1, a in x.6 %}
-                                <p><li> {{a.0}}{% trans "Bought" %}：{{a.1}} </li><li> {{a.0}}{% trans "Single Prices"%}：￥{{a.2}}</li>
-                                    <li>
-                                        {% if a.1 > '0' %}
-                                            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn{{n1}}">
-                                        {% else %}
-                                            <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn{{n1}}" disabled>
-                                        {%endif %}
-                                           {% trans "Return now" %} </button>
-                                           <div class="modal fade" id="buyn{{n1}}" tabindex="-1" role="dialog" aria-labelledby="buyn{{n1}}" aria-hidden="true">
-                                             <div class="modal-dialog modal-dialog-centered" role="document">
-                                               <div class="modal-content">
-                                                 <div class="modal-header">
-                                                   <h5 class="modal-title">{% trans "Please choose the amount you want to buy"%}</h5>
-                                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                     <span aria-hidden="true">&times;</span>
-                                                   </button>
-                                                 </div>
-                                                <form method="post">
-                                                    {%csrf_token%}
-                                                 <div class="modal-body">
-                                                   <input type="number" name="num_ret" class="form-control" min="1" max="100" autofocus required>
-                                                 </div>
-                                                 <div class="modal-footer">
-                                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cancel" %}</button>
-                                                       <input type="hidden" name="trainid" value="{{x.0}}">
-                                                       <input type="hidden" name="trainfr" value="{{x.2}}">
-                                                       <input type="hidden" name="trainto" value="{{x.4}}">
-                                                       <input type="hidden" name="date" value="{{date}}">
-                                                       <input type="hidden" name="class_name" value="{{a.0}}">
-                                                       <button type="submit" class="btn btn-success">{% trans "Submit!" %}</button>
-                                                 </div>
-                                                </form>
-                                               </div>
+                                <p><div class="row" style="text-align:center;">
+                                    <div class="col">
+                                        {{a.0}}{% trans "Bought" %}：{{a.1}}
+                                    </div>
+                                    <div class="col">
+                                        {{a.0}}{% trans "Single Prices" %}：￥{{a.2}}
+                                    </div>
+                                    <div class="col">
+                                    {% if a.1 > '0' %}
+                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn{{n1}}">
+                                    {% else %}
+                                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#buyn{{n1}}
+                                        " disabled>
+                                    {%endif %}
+                                       {% trans "Return now" %} </button>
+                                       <div class="modal fade" id="buyn{{n1}}" tabindex="-1" role="dialog" aria-labelledby="buyn{{n1}}" aria-hidden="true">
+                                         <div class="modal-dialog modal-dialog-centered" role="document">
+                                           <div class="modal-content">
+                                             <div class="modal-header">
+                                               <h5 class="modal-title">{% trans "Please choose the amount you want to buy"%}</h5>
+                                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                 <span aria-hidden="true">&times;</span>
+                                               </button>
                                              </div>
+                                            <form method="post">
+                                                {%csrf_token%}
+                                             <div class="modal-body">
+                                               <input type="number" name="num_buy" class="form-control" min="1" max="100" autofocus required>
+                                             </div>
+                                             <div class="modal-footer">
+                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Cancel" %}</button>
+                                                   <input type="hidden" name="trainid" value="{{x.0}}" read-only="true">
+                                                   <input type="hidden" name="trainfr" value="{{x.2}}" read-only="true">
+                                                   <input type="hidden" name="trainto" value="{{x.4}}" read-only="true">
+                                                   <input type="hidden" name="date" value="{{date}}" read-only="true">
+                                                   <input type="hidden" name="class_name" value="{{a.0}}" read-only="true">
+                                                   <button type="submit" class="btn btn-success">{% trans "Submit!" %}</button>
+                                             </div>
+                                            </form>
+                                           </div>
                                          </div>
-                                </li>
+                                     </div>
+                                    </div>
+                                </div>
                                 </p>
                                 {% endfor %}
                             </div>

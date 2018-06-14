@@ -42,20 +42,24 @@ def index(request):
 
     logout = getServerSideCookie(request, 'logout')
     if logout != None:
-        msg = '再见，{}，您已成功登出！'.format(logout)
         #messages.success(request, '再见，{}，您已成功登出！'.format(logout))
+        msg = '再见，{}，您已成功登出！'.format(logout)
         context['msg'] = msg
         request.session['logout'] = None
 
     login = getServerSideCookie(request, 'login')
     if login != None:
-        messages.success(request, '您好，{}，欢迎回来！'.format(login))
+        #messages.success(request, '您好，{}，欢迎回来！'.format(login))
+        msg = '您好，{}，欢迎回来！'.format(login)
+        context['msg'] = msg
         request.session['login'] = None
 
     register = getServerSideCookie(request, 'register')
     if register != None:
         name, id = register.split()
-        messages.success(request, '您好，{}，欢迎注册！您的用户ID为{}，请牢记。'.format(name, id))
+        #messages.success(request, '您好，{}，欢迎注册！您的用户ID为{}，请牢记。'.format(name, id))
+        msg = '您好，{}，欢迎注册！您的用户ID为{}，请牢记。'.format(name, id)
+        context['msg'] = msg
         request.session['register'] = None
 
     return render(request, 'index.html', context)
@@ -185,6 +189,9 @@ def signupadmin(request):
     userid = getServerSideCookie(request, 'userid', '0')
     userpv = getServerSideCookie(request, 'userpv', '0')
 
+    if userid != '0':
+        return HttpResponseRedirect(reverse('index'))
+
     if request.method == 'POST':
         username = request.POST.get('username')
         emailaddress = request.POST.get('emailaddress')
@@ -212,13 +219,23 @@ def signupadmin(request):
             if tmpip == '127.0.0.1' or Country_code == 'CN':
                 lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
                 dataInput = ctypes.create_string_buffer(' '.join((username, password, emailaddress, phonenumber)).encode('UTF-8'))
-                dataOutput = ctypes.create_string_buffer(1000)
+                dataOutput = ctypes.create_string_buffer(10)
                 inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
                 outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
                 lib.userRegister(inputPointer, outputPointer)
                 info = dataOutput.value.decode('UTF-8')
 
-                if info != '-1':
+                if info != '0':
+                    request.session['register'] = ' '.join((username, info))
+
+                    lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
+                    dataInput = ctypes.create_string_buffer(' '.join(('2018', info, '2')).encode('UTF-8'))
+                    dataOutput = ctypes.create_string_buffer(1000)
+                    inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
+                    outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
+                    lib.userModifyPrivilege(inputPointer, outputPointer)
+                    info = dataOutput.value.decode('UTF-8')
+
                     return HttpResponseRedirect(reverse('index'))
             else:
                 messages.error(request, 'IP unacceptable')
@@ -250,6 +267,10 @@ def cinfo(request):
     if pwdError != None:
         messages.error(request, '密码错误！')
         request.session['pwdError'] = None
+
+    context['login_name'] = userid
+    context['authority'] = userpv
+    context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
 
     if request.method == 'POST':
 
@@ -318,7 +339,9 @@ def privilege(request):
 
     root = getServerSideCookie(request, 'root')
     if root != None:
-        messages.success(request, '您已成功将用户{}升级为管理员。'.format(root))
+        #messages.success(request, '您已成功将用户{}升级为管理员。'.format(root))
+        msg = '您已成功将用户{}升级为管理员。'.format(root)
+        context['msg'] = msg
         request.session['root'] = None
 
     fail = getServerSideCookie(request, 'fail')
@@ -364,7 +387,9 @@ def showinfo(request):
 
     changeInfo = getServerSideCookie(request, 'changeInfo')
     if changeInfo != None:
-        messages.success(request, '您已成功修改个人信息。')
+        #messages.success(request, '您已成功修改个人信息。')
+        msg = '您已成功修改个人信息。'
+        context['msg'] = msg
         request.session['changeInfo'] = None
 
     context['login_name'] = userid

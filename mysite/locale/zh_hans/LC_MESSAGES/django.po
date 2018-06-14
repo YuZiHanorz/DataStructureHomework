@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-13 13:34+0000\n"
+"POT-Creation-Date: 2018-06-14 03:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,7 +88,7 @@ msgid "Are you sure you want to delete this train?"
 msgstr "您真的确定要删除这班火车?"
 
 #: templates/AskTrain.html:81 templates/SeekTickets.html:122
-#: templates/SeekTickets.html:191 templates/buyhistory.html:115
+#: templates/SeekTickets.html:191 templates/buyhistory.html:122
 msgid "Cancel"
 msgstr "取消"
 
@@ -107,13 +107,13 @@ msgstr "更改用户信息"
 
 #: templates/ChangeInfo.html:15 templates/ChangeInfo.html:16
 #: templates/ShowInfo.html:15 templates/ShowInfo.html:16
-#: templates/Signupadmin.html:25 templates/signup.html:15
+#: templates/Signupadmin.html:16 templates/signup.html:15
 msgid "Email address"
 msgstr "电子邮箱地址"
 
 #: templates/ChangeInfo.html:18 templates/ChangeInfo.html:19
 #: templates/ChangeInfo.html:20 templates/ShowInfo.html:18
-#: templates/ShowInfo.html:19 templates/Signupadmin.html:28
+#: templates/ShowInfo.html:19 templates/Signupadmin.html:19
 #: templates/signup.html:18
 msgid "User Name"
 msgstr "用户名"
@@ -134,13 +134,13 @@ msgstr "（选填）"
 
 #: templates/ChangeInfo.html:27 templates/ChangeInfo.html:28
 #: templates/ChangeInfo.html:29 templates/ShowInfo.html:21
-#: templates/ShowInfo.html:22 templates/Signupadmin.html:31
-#: templates/Signupadmin.html:32 templates/signup.html:21
+#: templates/ShowInfo.html:22 templates/Signupadmin.html:22
+#: templates/Signupadmin.html:23 templates/signup.html:21
 #: templates/signup.html:22
 msgid "Phone Number"
 msgstr "电话号码"
 
-#: templates/ChangeInfo.html:32 templates/Signupadmin.html:35
+#: templates/ChangeInfo.html:32 templates/Signupadmin.html:26
 #: templates/signup.html:25
 msgid "show password"
 msgstr "显示密码"
@@ -188,8 +188,8 @@ msgid "Starting station"
 msgstr "起始站"
 
 #: templates/SeekTickets.html:80 templates/SeekTickets.html:150
-#: templates/buyhistory.html:77 templates/searchtrain.html:23
-#: templates/searchtrain.html:24
+#: templates/buyhistory.html:77 templates/searchtrain.html:22
+#: templates/searchtrain.html:23
 msgid "Destination"
 msgstr "目的地"
 
@@ -202,12 +202,12 @@ msgid "Buy now"
 msgstr "立即购买"
 
 #: templates/SeekTickets.html:111 templates/SeekTickets.html:180
-#: templates/buyhistory.html:104
+#: templates/buyhistory.html:111
 msgid "Please choose the amount you want to buy"
 msgstr "请选择购买的数量"
 
 #: templates/SeekTickets.html:128 templates/SeekTickets.html:197
-#: templates/buyhistory.html:121
+#: templates/buyhistory.html:128
 msgid "Submit!"
 msgstr "提交"
 
@@ -219,34 +219,34 @@ msgstr "带中转的搜索结果"
 msgid "Show profile"
 msgstr "显示用户信息"
 
-#: templates/Signupadmin.html:24 templates/signup.html:14
+#: templates/Signupadmin.html:15 templates/signup.html:14
 msgid "register now"
 msgstr "注册"
 
-#: templates/Signupadmin.html:27 templates/about.html:19
+#: templates/Signupadmin.html:18 templates/about.html:19
 #: templates/signup.html:17
 msgid "Name"
 msgstr "姓名"
 
-#: templates/Signupadmin.html:29 templates/Signupadmin.html:30
+#: templates/Signupadmin.html:20 templates/Signupadmin.html:21
 #: templates/login.html:19 templates/signup.html:19 templates/signup.html:20
 msgid "Password"
 msgstr "密码"
 
-#: templates/Signupadmin.html:40 templates/signup.html:28
+#: templates/Signupadmin.html:31 templates/signup.html:28
 msgid "Sign up"
 msgstr "注册"
 
-#: templates/Signupadmin.html:44 templates/signup.html:32
+#: templates/Signupadmin.html:35 templates/signup.html:32
 msgid "Already has an account? Click"
 msgstr "已有账号？点击"
 
-#: templates/Signupadmin.html:44 templates/login.html:40
+#: templates/Signupadmin.html:35 templates/login.html:40
 #: templates/signup.html:32
 msgid "here"
 msgstr "这里"
 
-#: templates/Signupadmin.html:44 templates/signup.html:32
+#: templates/Signupadmin.html:35 templates/signup.html:32
 msgid "to log in"
 msgstr "以登录"
 
@@ -313,15 +313,15 @@ msgstr "车站名称"
 msgid "Submit and create the train!"
 msgstr "提交以创建火车"
 
-#: templates/buyhistory.html:92
+#: templates/buyhistory.html:94
 msgid "Bought"
 msgstr "已买"
 
-#: templates/buyhistory.html:92
+#: templates/buyhistory.html:97
 msgid "Single Prices"
 msgstr "单价"
 
-#: templates/buyhistory.html:99
+#: templates/buyhistory.html:106
 msgid "Return now"
 msgstr "退票"
 
@@ -480,12 +480,12 @@ msgid "Please enter Trainid"
 msgstr "请输入trainid"
 
 #: templates/query_train.html:17 templates/searchtickets.html:19
-#: templates/searchtrain.html:48
+#: templates/searchtrain.html:47
 msgid "Search Now"
 msgstr "搜索"
 
 #: templates/searchtickets.html:15 templates/searchtickets.html:16
-#: templates/searchtrain.html:27 templates/searchtrain.html:28
+#: templates/searchtrain.html:26 templates/searchtrain.html:27
 msgid "Departure Date"
 msgstr "出发日期"
 
@@ -493,11 +493,11 @@ msgstr "出发日期"
 msgid "Search for trains"
 msgstr "搜索车次"
 
-#: templates/searchtrain.html:19 templates/searchtrain.html:20
+#: templates/searchtrain.html:18 templates/searchtrain.html:19
 msgid "Start"
 msgstr "始发地"
 
-#: templates/searchtrain.html:36
+#: templates/searchtrain.html:35
 msgid ""
 "Check this means you accept at most one time's getting off the train and we "
 "will give you a pair of trains which will let you travel with the shortest "

@@ -12,8 +12,8 @@
       <form class="form-signin" method="post" action="/login/">
         {% csrf_token %}
         <h2 class="form-signin-heading">{% trans "Please log in" %}</h2>
-        <label for="inputName" class="sr-only">{% trans "User name" %}</label>
-        <input type="text" name="userid" class="form-control" placeholder="trans UserID" required autofocus>
+        <label for="inputName" class="sr-only"> UserID</label>
+        <input type="text" name="userid" class="form-control" placeholder="UserID" required autofocus>
         <div class="input-group-append">
           <label for="inputPassword" class="sr-only">{% trans Password %}</label>
           <input type="password" name="password" id="pass" class="form-control js-password-control" placeholder="{% trans 'Password' %}" required>

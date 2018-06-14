@@ -33,12 +33,20 @@ def cstyle1(request):
     request.session['tmpstyle'] = '1'
     return HttpResponseRedirect(reverse('index'))
 
+def tozh(request):
+    request.session['_language'] = 'zh-CN'
+    return HttpResponseRedirect(reverse('index'))
+
+def toen(request):
+    request.session['_language'] = 'en'
+    return HttpResponseRedirect(reverse('index'))
+
 def index(request):
     context = {}
     context['login_name'] = getServerSideCookie(request, 'userid', '0')
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
-    
+
 
     logout = getServerSideCookie(request, 'logout')
     if logout != None:

@@ -31,6 +31,8 @@ urlpatterns = [
     path('change_info/', views.cinfo, name="cinfo"),
     path('cstyle0/', views.cstyle0, name="cstyle0"),
     path('cstyle1/', views.cstyle1, name="cstyle1"),
+    path('toen/', views.toen, name="toen"),
+    path('tocn/', views.tozh, name="tozh"),
     path('trains/', include('trains.urls')),
     path('tickets/', include('tickets.urls')),
     path('chinarailway/', include('system.urls')),

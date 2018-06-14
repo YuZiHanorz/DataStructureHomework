@@ -220,9 +220,9 @@ def signupadmin(request):
             result = r.json()
             print(result['success'])
         except BaseException:
-            result = {'success':'true'}
+            result = {'success': True}
 
-        if result['success'] == 'true':
+        if result['success'] == True:
             tmpip = getip(request)
             Country_code = getCountry(tmpip)
 

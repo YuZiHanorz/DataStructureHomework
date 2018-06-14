@@ -1,0 +1,556 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-14 11:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/AskTrain.html:8 templates/SeekTickets.html:74
+#: templates/buyhistory.html:74
+msgid "Search results"
+msgstr "搜索结果"
+
+#: templates/AskTrain.html:14 templates/SeekTickets.html:80
+#: templates/SeekTickets.html:150 templates/buyhistory.html:77
+#: templates/query_train.html:35 templates/query_train.html:36
+msgid "Train id"
+msgstr "火车id"
+
+#: templates/AskTrain.html:17 templates/add_train.html:43
+#: templates/add_train.html:44
+msgid "Train name"
+msgstr "列车名称"
+
+#: templates/AskTrain.html:20
+msgid "Catalogs"
+msgstr "类别"
+
+#: templates/AskTrain.html:31 templates/add_train.html:47
+#: templates/add_train.html:48
+msgid "Number of Station"
+msgstr "车站数"
+
+#: templates/AskTrain.html:31 templates/SeekTickets.html:80
+#: templates/SeekTickets.html:150 templates/add_train_in_station.html:18
+#: templates/buyhistory.html:77
+msgid "Arriving time"
+msgstr "到达时间"
+
+#: templates/AskTrain.html:31 templates/SeekTickets.html:80
+#: templates/SeekTickets.html:150 templates/add_train_in_station.html:18
+#: templates/buyhistory.html:77
+msgid "Departure time"
+msgstr "出发时间"
+
+#: templates/AskTrain.html:31
+msgid "Staying time"
+msgstr "停留时间"
+
+#: templates/AskTrain.html:33 templates/SeekTickets.html:97
+#: templates/SeekTickets.html:167 templates/add_train_in_station.html:20
+msgid "Prices"
+msgstr "价格"
+
+#: templates/AskTrain.html:54
+msgid "Public this train"
+msgstr "公开车次"
+
+#: templates/AskTrain.html:58
+msgid "Delete this train"
+msgstr "删除车次"
+
+#: templates/AskTrain.html:66
+msgid "Delete check"
+msgstr "确认删除"
+
+#: templates/AskTrain.html:72
+msgid "Are you sure you want to delete this train?"
+msgstr "您真的确定要删除这班火车?"
+
+#: templates/AskTrain.html:75 templates/SeekTickets.html:122
+#: templates/SeekTickets.html:191 templates/buyhistory.html:122
+msgid "Cancel"
+msgstr "取消"
+
+#: templates/AskTrain.html:79
+msgid "Delete"
+msgstr "删除"
+
+#: templates/AskTrain.html:88
+msgid "This train doesn't exist!"
+msgstr "该车次不存在！"
+
+#: templates/ChangeInfo.html:35 templates/ChangeInfo.html:56
+#: templates/ShowInfo.html:52
+msgid "Change user info"
+msgstr "更改用户信息"
+
+#: templates/ChangeInfo.html:36 templates/ChangeInfo.html:37
+#: templates/ShowInfo.html:36 templates/ShowInfo.html:37
+#: templates/Signupadmin.html:37 templates/signup.html:36
+msgid "Email address"
+msgstr "电子邮箱地址"
+
+#: templates/ChangeInfo.html:39 templates/ChangeInfo.html:40
+#: templates/ChangeInfo.html:41 templates/ShowInfo.html:39
+#: templates/ShowInfo.html:40 templates/Signupadmin.html:40
+#: templates/signup.html:39
+msgid "User Name"
+msgstr "用户名"
+
+#: templates/ChangeInfo.html:42 templates/ChangeInfo.html:43
+#: templates/ChangeInfo.html:44
+msgid "Old password"
+msgstr "旧密码"
+
+#: templates/ChangeInfo.html:45 templates/ChangeInfo.html:46
+#: templates/ChangeInfo.html:47
+msgid "New password"
+msgstr "新密码"
+
+#: templates/ChangeInfo.html:45
+msgid "(if needed)"
+msgstr "（选填）"
+
+#: templates/ChangeInfo.html:48 templates/ChangeInfo.html:49
+#: templates/ChangeInfo.html:50 templates/ShowInfo.html:42
+#: templates/ShowInfo.html:43 templates/Signupadmin.html:43
+#: templates/Signupadmin.html:44 templates/signup.html:42
+#: templates/signup.html:43
+msgid "Phone Number"
+msgstr "电话号码"
+
+#: templates/ChangeInfo.html:53 templates/Signupadmin.html:47
+#: templates/signup.html:46
+msgid "show password"
+msgstr "显示密码"
+
+#: templates/Error.html:9
+msgid "There is something wrong with the url you have just entered"
+msgstr "你访问的网址有误"
+
+#: templates/Error.html:9
+msgid "Home page"
+msgstr "主页"
+
+#: templates/Error.html:12
+msgid "The page will be automatically go to the home page after 10 seconds"
+msgstr "将在10s后自动跳转。"
+
+#: templates/Error.html:12
+msgid "There are"
+msgstr "还有"
+
+#: templates/Error.html:12
+msgid "seconds rest"
+msgstr "秒剩余"
+
+#: templates/Privilege.html:29 templates/layout.html:80
+msgid "Change Privilege"
+msgstr "更改权限"
+
+#: templates/Privilege.html:32
+msgid "Please enter Userid"
+msgstr "请输入Userid"
+
+#: templates/Privilege.html:39
+msgid "Change Now"
+msgstr "更改用户权限"
+
+#: templates/SeekTickets.html:74 templates/buyhistory.html:74
+msgid "Type in the box below the table head to get specify results."
+msgstr "在表头下面的输入框输入以筛选结果。"
+
+#: templates/SeekTickets.html:80 templates/SeekTickets.html:150
+#: templates/buyhistory.html:77
+msgid "Train catalogs"
+msgstr "火车类型"
+
+#: templates/SeekTickets.html:80 templates/SeekTickets.html:150
+#: templates/buyhistory.html:77
+msgid "Starting station"
+msgstr "起始站"
+
+#: templates/SeekTickets.html:80 templates/SeekTickets.html:150
+#: templates/buyhistory.html:77 templates/searchtrain.html:44
+#: templates/searchtrain.html:45
+msgid "Destination"
+msgstr "目的地"
+
+#: templates/SeekTickets.html:94 templates/SeekTickets.html:164
+msgid "remaing"
+msgstr "剩余"
+
+#: templates/SeekTickets.html:106 templates/SeekTickets.html:175
+msgid "Buy now"
+msgstr "立即购买"
+
+#: templates/SeekTickets.html:111 templates/SeekTickets.html:180
+msgid "Please choose the amount you want to buy"
+msgstr "请选择购买的数量"
+
+#: templates/SeekTickets.html:128 templates/SeekTickets.html:197
+#: templates/buyhistory.html:128
+msgid "Submit!"
+msgstr "提交"
+
+#: templates/SeekTickets.html:146
+msgid "Search result with changing trains"
+msgstr "带中转的搜索结果"
+
+#: templates/ShowInfo.html:35 templates/layout.html:75
+msgid "Show profile"
+msgstr "显示用户信息"
+
+#: templates/ShowInfo.html:46
+msgid "Privilege"
+msgstr "权限"
+
+#: templates/ShowInfo.html:47 templates/ShowInfo.html:48
+msgid "super user"
+msgstr "管理员"
+
+#: templates/Signupadmin.html:36 templates/signup.html:35
+msgid "register now"
+msgstr "注册"
+
+#: templates/Signupadmin.html:39 templates/about.html:19
+#: templates/signup.html:38
+msgid "Name"
+msgstr "姓名"
+
+#: templates/Signupadmin.html:41 templates/Signupadmin.html:42
+#: templates/login.html:40 templates/signup.html:40 templates/signup.html:41
+msgid "Password"
+msgstr "密码"
+
+#: templates/Signupadmin.html:52 templates/signup.html:49
+msgid "Sign up"
+msgstr "注册"
+
+#: templates/Signupadmin.html:56 templates/signup.html:53
+msgid "Already has an account? Click"
+msgstr "已有账号？点击"
+
+#: templates/Signupadmin.html:56 templates/login.html:61
+#: templates/signup.html:53
+msgid "here"
+msgstr "这里"
+
+#: templates/Signupadmin.html:56 templates/signup.html:53
+msgid "to log in"
+msgstr "以登录"
+
+#: templates/about.html:12 templates/index.html:171
+msgid "About us"
+msgstr "关于我们"
+
+#: templates/about.html:15
+msgid ""
+"We are for student of ACM honored class in SJTU, and this is a page as our "
+"homework."
+msgstr "我们是来自上海交通大学ACM班的学生，这个网站是我们的作业。"
+
+#: templates/about.html:19
+msgid "Work Done"
+msgstr "负责内容"
+
+#: templates/about.html:22
+msgid "Web Page"
+msgstr "网页"
+
+#: templates/about.html:23
+msgid "Link of the HTML with the back programme"
+msgstr "前后端连接"
+
+#: templates/about.html:24
+msgid "test code (the activities concerns users)"
+msgstr "后端（与用户有关部分）"
+
+#: templates/about.html:25
+msgid "test code"
+msgstr "后端"
+
+#: templates/add_train.html:34 templates/add_train_in_class.html:8
+#: templates/add_train_in_station.html:8
+msgid "You have complete"
+msgstr "您已完成"
+
+#: templates/add_train.html:45 templates/add_train.html:46
+msgid "Train catalog"
+msgstr "火车类型"
+
+#: templates/add_train.html:49 templates/add_train.html:50
+msgid "Number of classes"
+msgstr "座位等级数"
+
+#: templates/add_train.html:51
+msgid "Continue filling in name of classes"
+msgstr "点击继续（填写座位等级名称）"
+
+#: templates/add_train_in_class.html:13
+msgid "Please input the name of all classes"
+msgstr "请输入所有座位等级的名称"
+
+#: templates/add_train_in_class.html:19
+msgid "Continue(fill in all stations)"
+msgstr "点击继续（填写站点信息）"
+
+#: templates/add_train_in_station.html:18
+msgid "Name of stations"
+msgstr "车站名称"
+
+#: templates/add_train_in_station.html:33
+msgid "Submit and create the train!"
+msgstr "提交以创建火车"
+
+#: templates/buyhistory.html:94
+msgid "Bought"
+msgstr "已买"
+
+#: templates/buyhistory.html:97
+msgid "Single Prices"
+msgstr "单价"
+
+#: templates/buyhistory.html:106
+msgid "refund now"
+msgstr "退票"
+
+#: templates/buyhistory.html:111
+msgid "Please choose the amount you want to refund"
+msgstr "请选择退票的数量"
+
+#: templates/index.html:42
+msgid "Breaking!"
+msgstr "惊喜！"
+
+#: templates/index.html:43
+msgid "You now have the chance to register an account with admin's privilege"
+msgstr "你现在可以有机会创建管理员账号（只要你是大陆ip）"
+
+#: templates/index.html:44
+msgid "Sign up now!"
+msgstr "现在注册"
+
+#: templates/index.html:54
+msgid "Easy! Quick! Stable!"
+msgstr "简单!快速！稳定！"
+
+#: templates/index.html:55
+msgid ""
+"Our plantform is very easy to use with directions everywhere. We also offer "
+"you an enjoyable experience during using our system."
+msgstr "我们的页面指示清晰，任何人都可以轻松使用。我们希望提供一个愉快的体验。"
+
+#: templates/index.html:68
+msgid "Open source"
+msgstr "开源"
+
+#: templates/index.html:69
+msgid "Safe, Stable"
+msgstr "安全，稳定"
+
+#: templates/index.html:72
+msgid "Browse Code"
+msgstr "浏览源码"
+
+#: templates/index.html:98
+msgid "Search tickets"
+msgstr "搜索车票"
+
+#: templates/index.html:99
+msgid "Search for the remaining ticketes"
+msgstr "搜索余票"
+
+#: templates/index.html:100 templates/index.html:106 templates/index.html:113
+msgid "View details"
+msgstr "查看详情"
+
+#: templates/index.html:104
+msgid "Search booking history"
+msgstr "查询订票历史"
+
+#: templates/index.html:105
+msgid "Search for what you have booked"
+msgstr "查看你的订票信息"
+
+#: templates/index.html:111
+msgid "Search with tranid"
+msgstr "用trainid搜索"
+
+#: templates/index.html:112
+msgid "Just for fun and for those who know very well what does this mean."
+msgstr "仅供娱乐，供明白这是什么的人点击（慎入）"
+
+#: templates/index.html:125
+msgid "Safe"
+msgstr "安全"
+
+#: templates/index.html:125
+msgid "IP check with robot check makes this system safe."
+msgstr "IP检查和机器人检查保障系统安全。"
+
+#: templates/index.html:126
+msgid ""
+"We have used the recaptcha from GOOGLE with a IP check to check if you want "
+"to register for a super user. So all the super users will be true human with "
+"Chinese hearts."
+msgstr "我们使用了GOOGLE的验证码系统和IP检查每个想要试图注册管理员的人。这样使我们的管理员全是有着中国心的真人。"
+
+#: templates/index.html:137
+msgid "Special"
+msgstr "特殊"
+
+#: templates/index.html:137
+msgid "Not simple Bootstrap"
+msgstr "不是简单的Bootstrap"
+
+#: templates/index.html:138
+msgid ""
+"We have used customized Bootstrap instead of standard Bootstrap, so the page "
+"may seem a little more different from simple Bootstrap pages."
+msgstr "我们使用了定制的Bootstrap而不是普通的Bootstrap，所以页面和普通的Bootstrap略有不同。"
+
+#: templates/index.html:149
+msgid "Internationalization"
+msgstr "国际化"
+
+#: templates/index.html:149
+msgid "Not only English"
+msgstr "不止中文"
+
+#: templates/index.html:150
+msgid ""
+"Thanks to Django, you now have the opportunity to try page for both Chinese "
+"and English."
+msgstr "基于Django，我们现在提供中文和英文两种语言的服务。"
+
+#: templates/index.html:170
+msgid "Back to top"
+msgstr "返回顶部"
+
+#: templates/layout.html:34
+msgid "Train Tickets Selling System"
+msgstr "火车订票系统"
+
+#: templates/layout.html:41
+msgid "Home"
+msgstr "主页"
+
+#: templates/layout.html:44
+msgid "About"
+msgstr "关于我们"
+
+#: templates/layout.html:48
+msgid "Style"
+msgstr "切换风格"
+
+#: templates/layout.html:51
+msgid "Page Style"
+msgstr "页面风格"
+
+#: templates/layout.html:53
+msgid "Square"
+msgstr "方角"
+
+#: templates/layout.html:55
+msgid "Rounded"
+msgstr "圆角"
+
+#: templates/layout.html:58
+msgid "Language"
+msgstr "语言"
+
+#: templates/layout.html:68
+msgid "login now"
+msgstr "现在登录"
+
+#: templates/layout.html:69
+msgid "sign up now"
+msgstr "现在注册"
+
+#: templates/layout.html:73
+msgid "User id:"
+msgstr "你的User id:"
+
+#: templates/layout.html:76 templates/searchtickets.html:29
+msgid "Search for booking history"
+msgstr "查询订票历史"
+
+#: templates/layout.html:79
+msgid "Add train"
+msgstr "添加车次"
+
+#: templates/layout.html:81
+msgid "Search for train"
+msgstr "搜索车次"
+
+#: templates/layout.html:88
+msgid "Log out"
+msgstr "登出"
+
+#: templates/login.html:35
+msgid "Please log in"
+msgstr "请登录"
+
+#: templates/login.html:53
+msgid "Show password"
+msgstr "显示密码"
+
+#: templates/login.html:57
+msgid "Sign in"
+msgstr "登录"
+
+#: templates/login.html:61
+msgid "No account? Click"
+msgstr "没有账号？点击"
+
+#: templates/login.html:61
+msgid "to register"
+msgstr "注册"
+
+#: templates/query_train.html:29
+msgid "Seach Train"
+msgstr "查询车次"
+
+#: templates/query_train.html:32
+msgid "Please enter Trainid"
+msgstr "请输入trainid"
+
+#: templates/query_train.html:39 templates/searchtickets.html:41
+#: templates/searchtrain.html:69
+msgid "Search Now"
+msgstr "搜索"
+
+#: templates/searchtickets.html:37 templates/searchtickets.html:38
+#: templates/searchtrain.html:48 templates/searchtrain.html:49
+msgid "Departure Date"
+msgstr "出发日期"
+
+#: templates/searchtrain.html:29
+msgid "Search for trains"
+msgstr "搜索车次"
+
+#: templates/searchtrain.html:40 templates/searchtrain.html:41
+msgid "Start"
+msgstr "始发地"
+
+#: templates/searchtrain.html:57
+msgid ""
+"Check this means you accept at most one time's getting off the train and we "
+"will give you a pair of trains which will let you travel with the shortest "
+"time."
+msgstr ""
+"勾选此项代表你接受最多中转一次的火车，我们将向你提供最短中转时间的一对车次。"

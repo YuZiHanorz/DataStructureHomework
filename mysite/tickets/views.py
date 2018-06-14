@@ -23,13 +23,17 @@ def index(request):
 
     loginFirst = getServerSideCookie(request, 'loginFirst')
     if loginFirst != None:
-        messages.success(request, '您好，请先登录。')
+        #messages.success(request, '您好，请先登录。')
+        msg = '您好，请先登录。'
+        context['msg'] = msg
         request.session['loginFirst'] = None
 
     addTicket = getServerSideCookie(request, 'addTicket')
     print('session here:', addTicket)
     if addTicket != None:
-        messages.success(request, '您已成功购票。')
+        #messages.success(request, '您已成功购票。')
+        msg = '您已成功购票。'
+        context['msg'] = msg
         request.session['addTicket'] = None
 
     if request.method == 'POST':
@@ -174,12 +178,16 @@ def buy_history(request):
 
     loginFirst = getServerSideCookie(request, 'loginFirst')
     if loginFirst != None:
-        messages.success(request, '您好，请先登录。')
+        #messages.success(request, '您好，请先登录。')
+        msg = '您好，请先登录。'
+        context['msg'] = msg
         request.session['loginFirst'] = None
 
     delTicket = getServerSideCookie(request, 'delTicket')
     if delTicket != None:
-        messages.success(request, '您已成功退票。')
+        #messages.success(request, '您已成功退票。')
+        msg = '您已成功退票。'
+        context['msg'] = msg
         request.session['delTicket'] = None
 
     if request.method == 'POST':

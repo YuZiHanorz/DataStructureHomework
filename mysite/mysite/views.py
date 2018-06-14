@@ -38,10 +38,13 @@ def index(request):
     context['login_name'] = getServerSideCookie(request, 'userid', '0')
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
+    
 
     logout = getServerSideCookie(request, 'logout')
     if logout != None:
-        messages.success(request, '再见，{}，您已成功登出！'.format(logout))
+        msg = '再见，{}，您已成功登出！'.format(logout)
+        #messages.success(request, '再见，{}，您已成功登出！'.format(logout))
+        context['msg'] = msg
         request.session['logout'] = None
 
     login = getServerSideCookie(request, 'login')
@@ -297,7 +300,7 @@ def cinfo(request):
             request.session['changeInfo'] = '1'
 
             return HttpResponseRedirect(reverse('sinfo'))
-        
+
         else:
             request.session['pwdError'] = '1'
 
@@ -317,7 +320,7 @@ def privilege(request):
     if root != None:
         messages.success(request, '您已成功将用户{}升级为管理员。'.format(root))
         request.session['root'] = None
-    
+
     fail = getServerSideCookie(request, 'fail')
     if fail != None:
         messages.error(request, '无法将用户{}升级为管理员。'.format(fail))

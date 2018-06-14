@@ -230,7 +230,6 @@ def signupadmin(request):
 def user_logout(request):
     request.session['userid'] = None
     request.session['userpv'] = None
-    request.session['tmpstyle'] = None
     request.session['logout'] = getServerSideCookie(request, 'usernm')
     request.session['usernm'] = None
 

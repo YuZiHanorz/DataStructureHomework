@@ -114,6 +114,8 @@ string query_ticket(const mystring<20> &loc1, const mystring<20> &loc2, const my
 
 	string ans;
 
+	cout << "true_seq.size = " << true_sequence.size() << endl;
+
 	for (int i = 0; i < true_sequence.size(); ++i) {
 		mystring<20> train_id;
 		for (int j = 0; j < 20; ++j) {
@@ -124,9 +126,12 @@ string query_ticket(const mystring<20> &loc1, const mystring<20> &loc2, const my
 		train pos;
 		if (thetrains.search(train_id, &pos) == 0) {
 			ans += pos.queryTicket(loc1, loc2, date, theRestTicket);
+			cout << ans << endl;
 			if (i != true_sequence.size() - 1) ans += " | ";
 		}
 	}
+
+	cout << ans << endl;
 
 	return ans;
 

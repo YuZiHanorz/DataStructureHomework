@@ -92,7 +92,7 @@ def index(request):
         lib.queryTicket(inputPointer, outputPointer)
         info = dataOutput.value.decode('UTF-8')
 
-        print(info)
+        print(ask, info)
 
         col = 0
 
@@ -179,8 +179,7 @@ def buy_history(request):
     loginFirst = getServerSideCookie(request, 'loginFirst')
     if loginFirst != None:
         #messages.success(request, '您好，请先登录。')
-        msg = '您好，请先登录。'
-        context['msg'] = msg
+        messages.error(request, '您好，请先登录。')
         request.session['loginFirst'] = None
 
     delTicket = getServerSideCookie(request, 'delTicket')

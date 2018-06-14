@@ -96,6 +96,11 @@ def login(request):
     if userid != '0':
         return HttpResponseRedirect(reverse('index'))
 
+    loginError = getServerSideCookie(request, 'loginError')
+    if loginError != None:
+        messages.error(request, '密码错误！')
+        request.session['loginError'] = None
+
     if request.method == 'POST':
         userid = request.POST.get('userid')
         password = request.POST.get('password')
@@ -125,6 +130,12 @@ def login(request):
             request.session['usernm'] = username
 
             return HttpResponseRedirect(reverse('index'))
+
+        else:
+
+            request.session['loginError'] = '1'
+
+            return HttpResponseRedirect(reverse('login'))
 
     context['login_name'] = userid
     context['authority'] = userpv
@@ -259,6 +270,22 @@ def cinfo(request):
 
             if pwd == '':
                 pwd = oldpwd
+
+            lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
+            dataInput = ctypes.create_string_buffer(userid.encode('UTF-8'))
+            dataOutput = ctypes.create_string_buffer(1000)
+            inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
+            outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
+            lib.userQueryProfile(inputPointer, outputPointer)
+            info = dataOutput.value.decode('UTF-8')
+            oldname, oldpwd, oldemail, oldphone, olduserpv = info.split()
+
+            if name == '':
+                name = oldname
+            if email == '':
+                email = oldemail
+            if phone == '':
+                phone = oldphone
 
             lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
             dataInput = ctypes.create_string_buffer(' '.join((userid, name, pwd, email, phone)).encode('UTF-8'))

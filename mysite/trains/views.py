@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.template import loader
-# Create your views here.
+from django.contrib import messages
 
 import os
 import ctypes
@@ -19,6 +19,15 @@ def index(request):
     context['login_name'] = getServerSideCookie(request, 'userid', '0')
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
+
+    userpv = context['authority']
+    if userpv != '2':
+        return HttpResponseRedirect(reverse('index'))
+
+    addTrain = getServerSideCookie(request, 'addTrain')
+    if addTrain != None:
+        messages.success(request, '您已成功将列车{}的信息添加至数据库中。'.format(addTrain))
+        request.session['addTrain'] = None
 
     if request.method == 'POST':
         trainid = request.POST.get('trainid')
@@ -44,6 +53,10 @@ def index1(request):
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
     num_price = int(getServerSideCookie(request, 'num_price', '0'))
     context['num_price'] = range(num_price)
+
+    userpv = context['authority']
+    if userpv != '2':
+        return HttpResponseRedirect(reverse('index'))
 
     if request.method == 'POST':
         class_train = []
@@ -76,6 +89,10 @@ def index2(request):
     context['login_name'] = getServerSideCookie(request, 'userid', '0')
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
+
+    userpv = context['authority']
+    if userpv != '2':
+        return HttpResponseRedirect(reverse('index'))
 
     num_price = int(getServerSideCookie(request, 'num_price', '0'))
     num_station = int(getServerSideCookie(request, 'num_station', '0'))
@@ -139,7 +156,9 @@ def index2(request):
         info = dataOutput.value.decode('UTF-8') 
         print(info)
 
-        return HttpResponseRedirect(reverse('index'))
+        request.session['addTrain'] = trainid
+
+        return HttpResponseRedirect(reverse('train_add'))
 
     return render(request, "add_train_in_station.html", context)
 
@@ -149,7 +168,15 @@ def query_train(request):
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
 
-    #print(context)
+    saleTrain = getServerSideCookie(request, 'saleTrain')
+    if saleTrain != None:
+        messages.success(request, '您已成功将列车{}调整为发售状态。'.format(saleTrain))
+        request.session['saleTrain'] = None
+
+    delTrain = getServerSideCookie(request, 'delTrain')
+    if delTrain != None:
+        messages.success(request, '您已成功将列车{}的信息从数据库中删除。'.format(delTrain))
+        request.session['delTrain'] = None
 
     if request.method == 'POST':
         trainid = request.POST.get('trainid')
@@ -164,7 +191,7 @@ def query_train(request):
             lib.saleTrain(inputPointer, outputPointer)
             info = dataOutput.value.decode('UTF-8') 
 
-            # train open sale
+            request.session['saleTrain'] = pubtrainid
 
             return HttpResponseRedirect(reverse('qt'))
 
@@ -179,6 +206,7 @@ def query_train(request):
             info = dataOutput.value.decode('UTF-8') 
 
             # train delete forever
+            request.session['delTrain'] = deltrainid
 
             return HttpResponseRedirect(reverse('qt'))
 

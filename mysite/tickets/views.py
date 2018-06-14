@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.template import loader
 from django.template import RequestContext
+from django.contrib import messages
 
 import os 
 import ctypes
@@ -20,7 +21,19 @@ def index(request):
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
 
+    loginFirst = getServerSideCookie(request, 'loginFirst')
+    if loginFirst != None:
+        messages.success(request, '您好，请先登录。')
+        request.session['loginFirst'] = None
+
+    addTicket = getServerSideCookie(request, 'addTicket')
+    print('session here:', addTicket)
+    if addTicket != None:
+        messages.success(request, '您已成功购票。')
+        request.session['addTicket'] = None
+
     if request.method == 'POST':
+
         trainid = request.POST.get('trainid')
         if trainid != None:
             userid = context['login_name']
@@ -29,6 +42,17 @@ def index(request):
             to = request.POST.get('trainto')
             date = request.POST.get('date')
             class_name = request.POST.get('class_name')
+
+            print('user?', userid)
+
+            if userid == '0':
+                request.session['loginFirst'] = '1'
+
+                tmp = getServerSideCookie(request, 'loginFirst')
+
+                print('login first', tmp)
+                # login first
+                return render(request, 'SeekTickets.html', context)
 
             print('Buying:', ' '.join((userid, num_buy, trainid, fr, to, date, class_name)))
 
@@ -40,7 +64,11 @@ def index(request):
             lib.buyTicket(inputPointer, outputPointer)
             info = dataOutput.value.decode('UTF-8')
 
-            return HttpResponseRedirect(reverse('buy_history'))
+            request.session['addTicket'] = '1'
+            print('session set to addTicket')
+
+            return HttpResponseRedirect(reverse('train_seek'))
+
 
         context['asked'] = True 
 
@@ -144,6 +172,16 @@ def buy_history(request):
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
 
+    loginFirst = getServerSideCookie(request, 'loginFirst')
+    if loginFirst != None:
+        messages.success(request, '您好，请先登录。')
+        request.session['loginFirst'] = None
+
+    delTicket = getServerSideCookie(request, 'delTicket')
+    if delTicket != None:
+        messages.success(request, '您已成功退票。')
+        request.session['delTicket'] = None
+
     if request.method == 'POST':
         userid = context['login_name']
         date = request.POST.get('date')
@@ -170,7 +208,14 @@ def buy_history(request):
             print(info)
 
             if info == '1':
+                request.session['delTicket'] = '1'
+                # return ticket
                 return HttpResponseRedirect(reverse('buy_history'))
+
+        if userid == '0':
+            request.session['loginFirst'] = '1'
+            # login first
+            return HttpResponseRedirect(reverse('buy_history'))
 
         lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
         dataInput = ctypes.create_string_buffer(' '.join((userid, date, 'GCDZTK')).encode('UTF-8'))

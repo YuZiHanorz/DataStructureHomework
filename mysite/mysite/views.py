@@ -39,6 +39,11 @@ def index(request):
     context['authority'] = getServerSideCookie(request, 'userpv', '0')
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
 
+    logout = getServerSideCookie(request, 'logout')
+    if logout != None:
+        messages.success(request, '再见，{}，您已成功登出！'.format(logout))
+        request.session['logout'] = None
+
     login = getServerSideCookie(request, 'login')
     if login != None:
         messages.success(request, '您好，{}，欢迎回来！'.format(login))
@@ -117,6 +122,7 @@ def login(request):
 
             request.session['userpv'] = userpv
             request.session['login'] = username
+            request.session['usernm'] = username
 
             return HttpResponseRedirect(reverse('index'))
 
@@ -214,6 +220,9 @@ def user_logout(request):
     request.session['userid'] = None
     request.session['userpv'] = None
     request.session['tmpstyle'] = None
+    request.session['logout'] = getServerSideCookie(request, 'usernm')
+    request.session['usernm'] = None
+
     return HttpResponseRedirect(reverse('index'))
 
 def cinfo(request):
@@ -223,6 +232,11 @@ def cinfo(request):
 
     if userid == None:
         return HttpResponseRedirect(reverse('index'))
+
+    pwdError = getServerSideCookie(request, 'pwdError')
+    if pwdError != None:
+        messages.error(request, '密码错误！')
+        request.session['pwdError'] = None
 
     if request.method == 'POST':
 
@@ -254,7 +268,14 @@ def cinfo(request):
             lib.userModifyProfile(inputPointer, outputPointer)
             info = dataOutput.value.decode('UTF-8')
 
-            return HttpResponseRedirect(reverse('index'))
+            request.session['changeInfo'] = '1'
+
+            return HttpResponseRedirect(reverse('sinfo'))
+        
+        else:
+            request.session['pwdError'] = '1'
+
+            return HttpResponseRedirect(reverse('cinfo'))
 
     return render(request, 'ChangeInfo.html', context)
 
@@ -265,6 +286,16 @@ def privilege(request):
 
     if userpv != '2':
         return HttpResponseRedirect(reverse('index'))
+
+    root = getServerSideCookie(request, 'root')
+    if root != None:
+        messages.success(request, '您已成功将用户{}升级为管理员。'.format(root))
+        request.session['root'] = None
+    
+    fail = getServerSideCookie(request, 'fail')
+    if fail != None:
+        messages.error(request, '无法将用户{}升级为管理员。'.format(fail))
+        request.session['fail'] = None
 
     context['login_name'] = userid
     context['authority'] = userpv
@@ -282,7 +313,15 @@ def privilege(request):
         info = dataOutput.value.decode('UTF-8')
 
         if info == '1':
-            return HttpResponseRedirect(reverse('index'))
+            request.session['root'] = opuserid
+
+            return HttpResponseRedirect(reverse('cright'))
+
+        else:
+            request.session['fail'] = opuserid
+
+            return HttpResponseRedirect(reverse('cright'))
+
 
     return render(request, 'Privilege.html', context)
 
@@ -293,6 +332,11 @@ def showinfo(request):
 
     if userid == None:
         return HttpResponseRedirect(reverse('index'))
+
+    changeInfo = getServerSideCookie(request, 'changeInfo')
+    if changeInfo != None:
+        messages.success(request, '您已成功修改个人信息。')
+        request.session['changeInfo'] = None
 
     context['login_name'] = userid
     context['authority'] = userpv

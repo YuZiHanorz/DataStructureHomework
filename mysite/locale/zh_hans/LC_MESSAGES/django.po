@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-14 04:38+0000\n"
+"POT-Creation-Date: 2018-06-14 04:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,7 +101,7 @@ msgid "This train doesn't exist!"
 msgstr "该车次不存在！"
 
 #: templates/ChangeInfo.html:35 templates/ChangeInfo.html:56
-#: templates/ShowInfo.html:47
+#: templates/ShowInfo.html:52
 msgid "Change user info"
 msgstr "更改用户信息"
 
@@ -217,6 +217,14 @@ msgstr "带中转的搜索结果"
 #: templates/ShowInfo.html:35 templates/layout.html:66
 msgid "Show profile"
 msgstr "显示用户信息"
+
+#: templates/ShowInfo.html:46
+msgid "Privilege"
+msgstr "权限"
+
+#: templates/ShowInfo.html:47 templates/ShowInfo.html:48
+msgid "super user"
+msgstr "管理员"
 
 #: templates/Signupadmin.html:36 templates/signup.html:35
 msgid "register now"

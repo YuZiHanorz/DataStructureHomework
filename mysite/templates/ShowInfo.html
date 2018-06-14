@@ -38,10 +38,15 @@
         <input type="email" name="emailaddress" class="form-control" value="{{email}}" disabled>
         <h5>{% trans "User Name" %}</h5>
         <label for="inputName" class="sr-only">{% trans "User Name" %}</label>
-        <input type="text" name="username" class="form-control" placeholder="{{name}}" disabled>
+        <input type="text" name="username" class="form-control" value="{{name}}" disabled>
         <h5>{% trans "Phone Number" %}</h5>
         <label for="inputPhone" class="sr-only">{% trans "Phone Number" %}</label>
-        <input type="tel" name="phonenumber" class="form-control" placeholder="{{phone}}" disabled>
+        <input type="tel" name="phonenumber" class="form-control" value="{{phone}}" disabled>
+        {% if authority == '2' %}
+            <h5>{% trans "Privilege" %}</h5>
+            <label for="inputPhone" class="sr-only">{% trans "super user" %}</label>
+            <input type="text" name="phonenumber" class="form-control" value="{% trans 'super user' %}" disabled>
+        {% endif %}
 
         <a href="/change_info/">
         <button class="btn btn-lg btn-primary btn-block" type="button">{% trans "Change user info" %}</button>

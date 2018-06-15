@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-15 03:02+0000\n"
+"POT-Creation-Date: 2018-06-15 03:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -245,7 +245,7 @@ msgid "Sign up"
 msgstr "注册"
 
 #: templates/Signupadmin.html:56 templates/signup.html:53
-msgid "Already has an account? Click"
+msgid "Already has an account? Click "
 msgstr "已有账号？点击"
 
 #: templates/Signupadmin.html:56 templates/login.html:61
@@ -254,7 +254,7 @@ msgid "here"
 msgstr "这里"
 
 #: templates/Signupadmin.html:56 templates/signup.html:53
-msgid "to log in"
+msgid " to log in"
 msgstr "以登录"
 
 #: templates/about.html:12 templates/index.html:171
@@ -522,11 +522,11 @@ msgid "Sign in"
 msgstr "登录"
 
 #: templates/login.html:61
-msgid "No account? Click"
+msgid "No account? Click "
 msgstr "没有账号？点击"
 
 #: templates/login.html:61
-msgid "to register"
+msgid " to register"
 msgstr "注册"
 
 #: templates/query_train.html:29

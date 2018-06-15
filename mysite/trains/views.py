@@ -275,6 +275,8 @@ def query_train(request):
             info = dataOutput.value.decode('UTF-8')
 
             context['publiced'] = info
+            if getServerSideCookie(request, 'userpv', '0') != '2':
+                context['publiced'] = '0'
             print(info)
 
             #print(station)

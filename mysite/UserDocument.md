@@ -14,7 +14,7 @@
 
 ### 注册登录
 
-<iframe height=500 width=500 src="https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/register.gif">
+![register](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/register.gif)
 
 ### 添加车次
 

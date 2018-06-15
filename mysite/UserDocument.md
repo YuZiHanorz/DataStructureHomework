@@ -18,23 +18,23 @@
 
 ### 添加车次
 
-<iframe height=500 width=500 src="https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/add_train.gif">
+![add](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/add_train.gif)
 
 ### 查询、公开、删除车次
 
-<iframe height=500 width=500 src="https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/public.gif">
+![public](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/public.gif)
 
 ### 买票
-<iframe height=500 width=500 src="https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/buy.gif">
+![buy](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/buy.gif)
 
 ### 查询中转操作
-<iframe height=500 width=500 src="https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/zz.gif">
+![zz](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/zz.gif)
 
 ### 退票
-<iframe height=500 width=500 src="https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/refund.gif">
+![refund](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/refund.gif)
 
 ### 查询用户信息
-<iframe height=500 width=500 src="https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/info.gif">
+![info](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/info.gif)
 
 ### 更改用户权限
-<iframe height=500 width=500 src="https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/privilege.gif">
+![privilege](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/privilege.gif)

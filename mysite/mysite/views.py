@@ -61,7 +61,7 @@ def index(request):
     login = getServerSideCookie(request, 'login')
     if login != None:
         #messages.success(request, '您好，{}，欢迎回来！'.format(login))
-        msg = '您好，{}，欢迎回来！'.format(login)
+        msg = _('Hello，{}，welcome back'.format(login))
         context['msg'] = msg
         request.session['login'] = None
 
@@ -69,7 +69,7 @@ def index(request):
     if register != None:
         name, id = register.split()
         #messages.success(request, '您好，{}，欢迎注册！您的用户ID为{}，请牢记。'.format(name, id))
-        msg = '您好，{}，欢迎注册！您的用户ID为{}，请牢记。'.format(name, id)
+        msg = _('Hello，{}，thanks you for registering！Your User ID is {}，please remember this。'.format(name, id))
         context['msg'] = msg
         request.session['register'] = None
 
@@ -116,7 +116,7 @@ def login(request):
 
     loginError = getServerSideCookie(request, 'loginError')
     if loginError != None:
-        messages.error(request, '密码错误！')
+        messages.error(request, _('Wrong password!'))
         request.session['loginError'] = None
 
     if request.method == 'POST':
@@ -249,9 +249,9 @@ def signupadmin(request):
 
                     return HttpResponseRedirect(reverse('index'))
             else:
-                messages.error(request, 'IP unacceptable')
+                messages.error(request, _('IP unacceptable'))
         else:
-            messages.error(request, '请正确填写验证码。')
+            messages.error(request, _('Please input the captcha correctly.'))
     context['login_name'] = userid
     context['authority'] = userpv
     context['style'] = getServerSideCookie(request, 'tmpstyle', '1')
@@ -276,7 +276,7 @@ def cinfo(request):
 
     pwdError = getServerSideCookie(request, 'pwdError')
     if pwdError != None:
-        messages.error(request, '密码错误！')
+        messages.error(request, _('Wrong password!'))
         request.session['pwdError'] = None
 
     context['login_name'] = userid
@@ -357,7 +357,7 @@ def privilege(request):
 
     fail = getServerSideCookie(request, 'fail')
     if fail != None:
-        messages.error(request, '无法将用户{}升级为管理员。'.format(fail))
+        messages.error(request, _('Can\'t promote {} to super user.'.format(fail)))
         request.session['fail'] = None
 
     context['login_name'] = userid

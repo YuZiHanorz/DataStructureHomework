@@ -5,6 +5,8 @@ from django.urls import reverse
 from django.template import loader
 from django.contrib import messages
 
+from django.utils.translation import ugettext as _
+
 import os
 import ctypes
 
@@ -27,7 +29,7 @@ def index(request):
     addTrain = getServerSideCookie(request, 'addTrain')
     if addTrain != None:
         #messages.success(request, '您已成功将列车{}的信息添加至数据库中。'.format(addTrain))
-        msg = '您已成功将列车{}的信息添加至数据库中。'.format(addTrain)
+        msg = _('You have successfully added the information of {} to the data base.'.format(addTrain))
         context['msg'] = msg
         request.session['addTrain'] = None
 
@@ -128,15 +130,15 @@ def index2(request):
                 y = '￥' + request.POST.get('price[' + str(i) + '][' + str(j) + ']')
                 price.append(y)
             sta_price.append(price)
-        
+
         time_arriv[0] = 'xx:xx'
 
         trainid = getServerSideCookie(request, 'trainid')
         trainname = getServerSideCookie(request, 'trainname')
         catalogs = getServerSideCookie(request, 'catalogs')
 
-        request.session['trainid'] = None 
-        request.session['trainname'] = None 
+        request.session['trainid'] = None
+        request.session['trainname'] = None
         request.session['catalogs'] = None
         request.session['num_station'] = None
         request.session['num_price'] = None
@@ -155,7 +157,7 @@ def index2(request):
         inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
         outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
         lib.addTrain(inputPointer, outputPointer)
-        info = dataOutput.value.decode('UTF-8') 
+        info = dataOutput.value.decode('UTF-8')
         print(info)
 
         request.session['addTrain'] = trainid
@@ -173,14 +175,14 @@ def query_train(request):
     saleTrain = getServerSideCookie(request, 'saleTrain')
     if saleTrain != None:
         #messages.success(request, '您已成功将列车{}调整为发售状态。'.format(saleTrain))
-        msg = '您已成功将列车{}调整为发售状态。'.format(saleTrain)
+        msg = _('You have successfully turn {} into saling now.'.format(saleTrain))
         context['msg'] = msg
         request.session['saleTrain'] = None
 
     delTrain = getServerSideCookie(request, 'delTrain')
     if delTrain != None:
         #messages.success(request, '您已成功将列车{}的信息从数据库中删除。'.format(delTrain))
-        msg = '您已成功将列车{}的信息从数据库中删除。'.format(delTrain)
+        msg = _('You have deleted the information of {} from the databases.'.format(delTrain))
         context['msg'] = msg
         request.session['delTrain'] = None
 
@@ -195,7 +197,7 @@ def query_train(request):
             inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
             outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
             lib.saleTrain(inputPointer, outputPointer)
-            info = dataOutput.value.decode('UTF-8') 
+            info = dataOutput.value.decode('UTF-8')
 
             request.session['saleTrain'] = pubtrainid
 
@@ -209,7 +211,7 @@ def query_train(request):
             inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
             outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
             lib.deleteTrain(inputPointer, outputPointer)
-            info = dataOutput.value.decode('UTF-8') 
+            info = dataOutput.value.decode('UTF-8')
 
             # train delete forever
             request.session['delTrain'] = deltrainid
@@ -224,7 +226,7 @@ def query_train(request):
         inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
         outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
         lib.queryTrain(inputPointer, outputPointer)
-        info = dataOutput.value.decode('UTF-8') 
+        info = dataOutput.value.decode('UTF-8')
         #print(info)
 
         context['asked'] = True
@@ -270,13 +272,13 @@ def query_train(request):
             inputPointer = (ctypes.c_char_p)(ctypes.addressof(dataInput))
             outputPointer = (ctypes.c_char_p)(ctypes.addressof(dataOutput))
             lib.saleTrainStatus(inputPointer, outputPointer)
-            info = dataOutput.value.decode('UTF-8') 
+            info = dataOutput.value.decode('UTF-8')
 
             context['publiced'] = info
             print(info)
 
             #print(station)
 
-        return render(request, 'AskTrain.html', context) 
+        return render(request, 'AskTrain.html', context)
 
     return render(request, 'AskTrain.html', context)

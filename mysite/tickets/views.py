@@ -6,7 +6,7 @@ from django.template import loader
 from django.template import RequestContext
 from django.contrib import messages
 
-import os 
+import os
 import ctypes
 
 def getServerSideCookie(request, cookie, default_val=None):
@@ -23,16 +23,16 @@ def index(request):
 
     loginFirst = getServerSideCookie(request, 'loginFirst')
     if loginFirst != None:
-        #messages.success(request, '您好，请先登录。')
-        msg = '您好，请先登录。'
-        context['msg'] = msg
+        messages.error(request, _('Hello, please log in first.'))
+        #msg = _('您好，请先登录。')
+        #context['msg'] = msg
         request.session['loginFirst'] = None
 
     addTicket = getServerSideCookie(request, 'addTicket')
     print('session here:', addTicket)
     if addTicket != None:
         #messages.success(request, '您已成功购票。')
-        msg = '您已成功购票。'
+        msg = _('You have successfully buy tickets.')
         context['msg'] = msg
         request.session['addTicket'] = None
 
@@ -56,7 +56,7 @@ def index(request):
 
                 print('login first', tmp)
                 # login first
-                return render(request, 'SeekTickets.html', context)
+                return HttpResponseRedirect(reverse('train_seek'))
 
             print('Buying:', ' '.join((userid, num_buy, trainid, fr, to, date, class_name)))
 
@@ -74,7 +74,7 @@ def index(request):
             return HttpResponseRedirect(reverse('train_seek'))
 
 
-        context['asked'] = True 
+        context['asked'] = True
 
         fs = request.POST.get('from')
         ts = request.POST.get('to')
@@ -83,7 +83,7 @@ def index(request):
         context['ts'] = ts
         context['date'] = date
         ask = ' '.join((fs, ts, date, 'GCDZTK'))
-        
+
         lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
         dataInput = ctypes.create_string_buffer(ask.encode('UTF-8'))
         dataOutput = ctypes.create_string_buffer(50000)
@@ -179,20 +179,20 @@ def buy_history(request):
     loginFirst = getServerSideCookie(request, 'loginFirst')
     if loginFirst != None:
         #messages.success(request, '您好，请先登录。')
-        messages.error(request, '您好，请先登录。')
+        messages.error(request, _('Hello, please log in first.'))
         request.session['loginFirst'] = None
 
     delTicket = getServerSideCookie(request, 'delTicket')
     if delTicket != None:
         #messages.success(request, '您已成功退票。')
-        msg = '您已成功退票。'
+        msg = _('You have successfully return the tickets.')
         context['msg'] = msg
         request.session['delTicket'] = None
 
     if request.method == 'POST':
         userid = context['login_name']
         date = request.POST.get('date')
-            
+
         trainid = request.POST.get('trainid')
         if trainid != None:
             print('returning')

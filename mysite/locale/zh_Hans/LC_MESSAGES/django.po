@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-14 11:31+0000\n"
+"POT-Creation-Date: 2018-06-15 00:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,78 +17,78 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/AskTrain.html:8 templates/SeekTickets.html:74
+#: templates/AskTrain.html:9 templates/SeekTickets.html:74
 #: templates/buyhistory.html:74
 msgid "Search results"
 msgstr "搜索结果"
 
-#: templates/AskTrain.html:14 templates/SeekTickets.html:80
+#: templates/AskTrain.html:15 templates/SeekTickets.html:80
 #: templates/SeekTickets.html:150 templates/buyhistory.html:77
 #: templates/query_train.html:35 templates/query_train.html:36
 msgid "Train id"
 msgstr "火车id"
 
-#: templates/AskTrain.html:17 templates/add_train.html:43
+#: templates/AskTrain.html:18 templates/add_train.html:43
 #: templates/add_train.html:44
 msgid "Train name"
 msgstr "列车名称"
 
-#: templates/AskTrain.html:20
+#: templates/AskTrain.html:21
 msgid "Catalogs"
 msgstr "类别"
 
-#: templates/AskTrain.html:31 templates/add_train.html:47
+#: templates/AskTrain.html:32 templates/add_train.html:47
 #: templates/add_train.html:48
 msgid "Number of Station"
 msgstr "车站数"
 
-#: templates/AskTrain.html:31 templates/SeekTickets.html:80
+#: templates/AskTrain.html:32 templates/SeekTickets.html:80
 #: templates/SeekTickets.html:150 templates/add_train_in_station.html:18
 #: templates/buyhistory.html:77
 msgid "Arriving time"
 msgstr "到达时间"
 
-#: templates/AskTrain.html:31 templates/SeekTickets.html:80
+#: templates/AskTrain.html:32 templates/SeekTickets.html:80
 #: templates/SeekTickets.html:150 templates/add_train_in_station.html:18
 #: templates/buyhistory.html:77
 msgid "Departure time"
 msgstr "出发时间"
 
-#: templates/AskTrain.html:31
+#: templates/AskTrain.html:32
 msgid "Staying time"
 msgstr "停留时间"
 
-#: templates/AskTrain.html:33 templates/SeekTickets.html:97
+#: templates/AskTrain.html:34 templates/SeekTickets.html:97
 #: templates/SeekTickets.html:167 templates/add_train_in_station.html:20
 msgid "Prices"
 msgstr "价格"
 
-#: templates/AskTrain.html:54
+#: templates/AskTrain.html:55
 msgid "Public this train"
 msgstr "公开车次"
 
-#: templates/AskTrain.html:58
+#: templates/AskTrain.html:59
 msgid "Delete this train"
 msgstr "删除车次"
 
-#: templates/AskTrain.html:66
+#: templates/AskTrain.html:67
 msgid "Delete check"
 msgstr "确认删除"
 
-#: templates/AskTrain.html:72
+#: templates/AskTrain.html:73
 msgid "Are you sure you want to delete this train?"
 msgstr "您真的确定要删除这班火车?"
 
-#: templates/AskTrain.html:75 templates/SeekTickets.html:122
+#: templates/AskTrain.html:76 templates/SeekTickets.html:122
 #: templates/SeekTickets.html:191 templates/buyhistory.html:122
 msgid "Cancel"
 msgstr "取消"
 
-#: templates/AskTrain.html:79
+#: templates/AskTrain.html:80
 msgid "Delete"
 msgstr "删除"
 
-#: templates/AskTrain.html:88
+#: templates/AskTrain.html:89
 msgid "This train doesn't exist!"
 msgstr "该车次不存在！"
 
@@ -407,7 +407,9 @@ msgid ""
 "We have used the recaptcha from GOOGLE with a IP check to check if you want "
 "to register for a super user. So all the super users will be true human with "
 "Chinese hearts."
-msgstr "我们使用了GOOGLE的验证码系统和IP检查每个想要试图注册管理员的人。这样使我们的管理员全是有着中国心的真人。"
+msgstr ""
+"我们使用了GOOGLE的验证码系统和IP检查每个想要试图注册管理员的人。这样使我们的"
+"管理员全是有着中国心的真人。"
 
 #: templates/index.html:137
 msgid "Special"
@@ -421,7 +423,9 @@ msgstr "不是简单的Bootstrap"
 msgid ""
 "We have used customized Bootstrap instead of standard Bootstrap, so the page "
 "may seem a little more different from simple Bootstrap pages."
-msgstr "我们使用了定制的Bootstrap而不是普通的Bootstrap，所以页面和普通的Bootstrap略有不同。"
+msgstr ""
+"我们使用了定制的Bootstrap而不是普通的Bootstrap，所以页面和普通的Bootstrap略有"
+"不同。"
 
 #: templates/index.html:149
 msgid "Internationalization"

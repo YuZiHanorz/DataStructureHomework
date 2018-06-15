@@ -4,6 +4,7 @@
 {% block ans %}
     {% if asked == True %}
         <div class="container">
+            <div class="card">
             <div class="card-header">
                 {% trans "Search results"%}
             </div>
@@ -88,6 +89,7 @@
                     {% trans "This train doesn't exist!" %}
                 {% endif %}
             </div>
+        </div>
         </div>
         {% endif %}
 {% endblock %}

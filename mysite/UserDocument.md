@@ -6,9 +6,15 @@
 
 # 用户手册
 
-- 普通用户：请按照提示进行操作即可。
+## 普通用户：
 
-- 管理员：与车次有关的操作全部在你的用户下拉栏里面。
+- 请按照提示进行操作即可。
+
+## 管理员：
+
+- 与车次有关的操作全部在你的用户下拉栏里面。
+
+- 其余按照提示进行操作即可
 
 ## 详细动图指导
 
@@ -25,16 +31,21 @@
 ![public](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/public.gif)
 
 ### 买票
+
 ![buy](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/buy.gif)
 
-### 查询中转操作
+### 查询有中转的车票
+
 ![zz](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/zz.gif)
 
 ### 退票
+
 ![refund](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/refund.gif)
 
 ### 查询用户信息
+
 ![info](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/info.gif)
 
 ### 更改用户权限
+
 ![privilege](https://github.com/laonahongchen/Data_Structures_Train_Station/blob/master/privilege.gif)

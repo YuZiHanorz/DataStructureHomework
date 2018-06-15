@@ -350,7 +350,7 @@ public:
 
 		record_t* haskey = find(leaf, key);
 
-		if (haskey != end(leaf) && haskey == key) //record_exist
+		if (haskey != end(leaf) && *haskey == key) //record_exist
 			return 1;
 
 		if (leaf.num < meta.order) {  //insert_directly

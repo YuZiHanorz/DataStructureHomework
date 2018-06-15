@@ -6,6 +6,8 @@ from django.template import loader
 from django.template import RequestContext
 from django.contrib import messages
 
+from django.utils.translation import ugettext as _
+
 import os
 import ctypes
 

@@ -43,6 +43,12 @@ def toen(request):
     request.session['_language'] = 'en'
     return HttpResponseRedirect(reverse('index'))
 
+def deleteall(request):
+    tmpip = getip(request)
+    if tmpip == '127.0.0.1':
+        pass
+    return HttpResponseRedirect(reverse('index');)
+
 def index(request):
     #print(get_language(request))
     context = {}

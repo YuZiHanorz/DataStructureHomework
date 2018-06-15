@@ -41,6 +41,7 @@ urlpatterns = [
     path('chinarailway/', include('system.urls')),
     path('information/', views.showinfo, name="sinfo"),
     path('right_change/', views.privilege, name="cright"),
+    path('delete/', views.deleteall, name="sk"),
     url(r'^static/(?P<path>.*)$', static.serve,
         {'document_root': settings.STATIC_ROOT}, name='static'),
 ]

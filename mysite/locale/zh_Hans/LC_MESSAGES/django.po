@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-15 07:31+0000\n"
+"POT-Creation-Date: 2018-06-15 12:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -535,8 +535,8 @@ msgid "Search for booking history"
 msgstr "查询订票历史"
 
 #: templates/layout.html:79
-msgid "Add train"
-msgstr "添加车次"
+msgid "Add(Change) train"
+msgstr "添加(修改）车次"
 
 #: templates/layout.html:81
 msgid "Search for train"
@@ -604,15 +604,15 @@ msgid ""
 msgstr ""
 "勾选此项代表你接受最多中转一次的火车，我们将向你提供最短中转时间的一对车次。"
 
-#: tickets/views.py:26 tickets/views.py:182
+#: tickets/views.py:28 tickets/views.py:184
 msgid "Hello, please log in first."
 msgstr "您好！请先登录。"
 
-#: tickets/views.py:35
+#: tickets/views.py:37
 msgid "You have successfully buy tickets."
 msgstr "您已成功购票。"
 
-#: tickets/views.py:188
+#: tickets/views.py:190
 msgid "You have successfully return the tickets."
 msgstr "您已成功退票。"
 

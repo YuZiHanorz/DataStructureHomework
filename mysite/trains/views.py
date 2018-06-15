@@ -29,7 +29,7 @@ def index(request):
     addTrain = getServerSideCookie(request, 'addTrain')
     if addTrain != None:
         #messages.success(request, '您已成功将列车{}的信息添加至数据库中。'.format(addTrain))
-        msg = _('You have successfully added the information of {} to the data base.'.format(addTrain))
+        msg = _('You have successfully added the information of {} to the data base.').format(addTrain)
         context['msg'] = msg
         request.session['addTrain'] = None
 
@@ -175,14 +175,14 @@ def query_train(request):
     saleTrain = getServerSideCookie(request, 'saleTrain')
     if saleTrain != None:
         #messages.success(request, '您已成功将列车{}调整为发售状态。'.format(saleTrain))
-        msg = _('You have successfully turn {} into saling now.'.format(saleTrain))
+        msg = _('You have successfully turn {} into saling now.').format(saleTrain)
         context['msg'] = msg
         request.session['saleTrain'] = None
 
     delTrain = getServerSideCookie(request, 'delTrain')
     if delTrain != None:
         #messages.success(request, '您已成功将列车{}的信息从数据库中删除。'.format(delTrain))
-        msg = _('You have deleted the information of {} from the databases.'.format(delTrain))
+        msg = _('You have deleted the information of {} from the databases.').format(delTrain)
         context['msg'] = msg
         request.session['delTrain'] = None
 

@@ -54,14 +54,14 @@ def index(request):
     logout = getServerSideCookie(request, 'logout')
     if logout != None:
         #messages.success(request, '再见，{}，您已成功登出！'.format(logout))
-        msg = _('Goodbye, {}，you have log out!'.format(logout))
+        msg = _('Goodbye, {}，you have log out!').format(logout)
         context['msg'] = msg
         request.session['logout'] = None
 
     login = getServerSideCookie(request, 'login')
     if login != None:
         #messages.success(request, '您好，{}，欢迎回来！'.format(login))
-        msg = _('Hello，{}，welcome back'.format(login))
+        msg = _('Hello，{}，welcome back').format(login)
         context['msg'] = msg
         request.session['login'] = None
 
@@ -69,7 +69,7 @@ def index(request):
     if register != None:
         name, id = register.split()
         #messages.success(request, '您好，{}，欢迎注册！您的用户ID为{}，请牢记。'.format(name, id))
-        msg = _('Hello，{}，thanks you for registering！Your User ID is {}，please remember this。'.format(name, id))
+        msg = _('Hello，{}，thanks you for registering！Your User ID is {}，please remember this。').format(name, id)
         context['msg'] = msg
         request.session['register'] = None
 
@@ -351,13 +351,13 @@ def privilege(request):
     root = getServerSideCookie(request, 'root')
     if root != None:
         #messages.success(request, '您已成功将用户{}升级为管理员。'.format(root))
-        msg = '您已成功将用户{}升级为管理员。'.format(root)
+        msg = _('You have successfully promote {} to super user.').format(root)
         context['msg'] = msg
         request.session['root'] = None
 
     fail = getServerSideCookie(request, 'fail')
     if fail != None:
-        messages.error(request, _('Can\'t promote {} to super user.'.format(fail)))
+        messages.error(request, _('Can\'t promote {} to super user.').format(fail))
         request.session['fail'] = None
 
     context['login_name'] = userid
@@ -399,7 +399,7 @@ def showinfo(request):
     changeInfo = getServerSideCookie(request, 'changeInfo')
     if changeInfo != None:
         #messages.success(request, '您已成功修改个人信息。')
-        msg = '您已成功修改个人信息。'
+        msg = _('You have successfully changed your profile.')
         context['msg'] = msg
         request.session['changeInfo'] = None
 

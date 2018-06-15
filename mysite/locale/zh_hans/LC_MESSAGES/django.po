@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-15 04:48+0000\n"
+"POT-Creation-Date: 2018-06-15 05:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,9 +43,17 @@ msgstr "IP有问题"
 msgid "Please input the captcha correctly."
 msgstr "请正确输入验证码。"
 
+#: mysite/views.py:354
+msgid "You have successfully promote {} to super user."
+msgstr "您已成功提升{}为管理员。"
+
 #: mysite/views.py:360
 msgid "Can't promote {} to super user."
 msgstr "不能提升{}为管理员。"
+
+#: mysite/views.py:402
+msgid "You have successfully changed your profile."
+msgstr "您已成功更改个人信息。"
 
 #: templates/AskTrain.html:9 templates/SeekTickets.html:74
 #: templates/buyhistory.html:74
@@ -68,8 +76,6 @@ msgid "Catalogs"
 msgstr "类别"
 
 #: templates/AskTrain.html:32
-#, fuzzy
-#| msgid "Name of stations"
 msgid "Name of Station"
 msgstr "车站名称"
 
@@ -289,10 +295,6 @@ msgid "About us"
 msgstr "关于我们"
 
 #: templates/about.html:15
-#, fuzzy
-#| msgid ""
-#| "We are for student of ACM honored class in SJTU, and this is a page as "
-#| "our homework."
 msgid ""
 "We are four student of ACM honored class in SJTU, and this is a page as our "
 "homework."

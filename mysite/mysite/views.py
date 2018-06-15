@@ -10,7 +10,7 @@ from django.contrib import messages
 from urllib.request import urlopen
 from urllib.error import HTTPError
 
-from django.utils import translation
+from django.utils.translation import ugettext as _
 
 import json
 import os
@@ -54,7 +54,7 @@ def index(request):
     logout = getServerSideCookie(request, 'logout')
     if logout != None:
         #messages.success(request, '再见，{}，您已成功登出！'.format(logout))
-        msg = '再见，{}，您已成功登出！'.format(logout)
+        msg = _('Goodbye, {}，you have log out!'.format(logout))
         context['msg'] = msg
         request.session['logout'] = None
 

@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.conf.urls import url
+from django.views import static
+from django.conf import settings
 
 from django.conf.urls import handler404, handler500
 
@@ -38,6 +41,8 @@ urlpatterns = [
     path('chinarailway/', include('system.urls')),
     path('information/', views.showinfo, name="sinfo"),
     path('right_change/', views.privilege, name="cright"),
+    url(r'^static/(?P<path>.*)$', static.serve,
+        {'document_root': settings.STATIC_ROOT}, name='static'),
 ]
 
 handler404 = views.page_not_found

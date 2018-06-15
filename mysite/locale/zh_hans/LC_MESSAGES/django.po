@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-06-15 05:15+0000\n"
+"POT-Creation-Date: 2018-06-15 07:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,41 +17,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mysite/views.py:57
+#: mysite/views.py:71
 msgid "Goodbye, {}，you have log out!"
 msgstr "再见, {}, 您已登出！"
 
-#: mysite/views.py:64
+#: mysite/views.py:78
 msgid "Hello，{}，welcome back"
 msgstr "您好,{}, 欢迎回来！"
 
-#: mysite/views.py:72
+#: mysite/views.py:86
 msgid ""
 "Hello，{}，thanks you for registering！Your User ID is {}，please remember "
 "this。"
 msgstr "您好，{}，感谢您注册本系统！您的用户ID是{}，请牢记。"
 
-#: mysite/views.py:119 mysite/views.py:279
+#: mysite/views.py:133 mysite/views.py:293
 msgid "Wrong password!"
 msgstr "密码错误！"
 
-#: mysite/views.py:252
+#: mysite/views.py:266
 msgid "IP unacceptable"
 msgstr "IP有问题"
 
-#: mysite/views.py:254
+#: mysite/views.py:268
 msgid "Please input the captcha correctly."
 msgstr "请正确输入验证码。"
 
-#: mysite/views.py:354
+#: mysite/views.py:368
 msgid "You have successfully promote {} to super user."
 msgstr "您已成功提升{}为管理员。"
 
-#: mysite/views.py:360
+#: mysite/views.py:374
 msgid "Can't promote {} to super user."
 msgstr "不能提升{}为管理员。"
 
-#: mysite/views.py:402
+#: mysite/views.py:416
 msgid "You have successfully changed your profile."
 msgstr "您已成功更改个人信息。"
 
@@ -542,7 +542,11 @@ msgstr "添加车次"
 msgid "Search for train"
 msgstr "搜索车次"
 
-#: templates/layout.html:88
+#: templates/layout.html:83
+msgid "Delete all"
+msgstr "删库"
+
+#: templates/layout.html:89
 msgid "Log out"
 msgstr "登出"
 

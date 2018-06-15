@@ -45,6 +45,8 @@ def toen(request):
 
 def deleteall(request):
     tmpip = getip(request)
+    if getServerSideCookie(request, 'userpv', '0') != '2':
+        return HttpResponseRedirect(reverse('index'))
     if tmpip == '127.0.0.1':
         lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
         lib.cleanCRSystem()

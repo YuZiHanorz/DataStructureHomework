@@ -42,8 +42,8 @@
         <input type="text" name="trainid" class="form-control" placeholder="Train Id" required autofocus>
         <label for="trainname" class="sr-only">{% trans "Train name" %}</label>
         <input type="text" name="trainname" class="form-control" placeholder="{% trans 'Train name' %}" required>
-        <label for="catalogs" class="sr-only">{% trans "Train catalog" %}</label>
-        <input type="text" name="catalogs" class="form-control" placeholder="{% trans 'Train catalog' %}" required>
+        <label for="catalogs" class="sr-only" >{% trans "Train catalog" %}</label>
+        <input type="text" name="catalogs" class="form-control" style="text-transform:uppercase;"  maxlength="1" placeholder="{% trans 'Train catalog' %}" required>
         <label for="num_station" class="sr-only">{% trans "Number of Station" %}</label>
         <input type="number" name="num_station" class="form-control" placeholder="{% trans 'Number of Station' %}" required>
         <label for="num_price" class="sr-only">{% trans "Number of classes" %}</label>

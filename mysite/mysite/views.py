@@ -46,8 +46,14 @@ def toen(request):
 def deleteall(request):
     tmpip = getip(request)
     if tmpip == '127.0.0.1':
-        pass
-    return HttpResponseRedirect(reverse('index');)
+        lib = ctypes.cdll.LoadLibrary('./lib/crsystem/libcr.so')
+        lib.cleanCRSystem()
+
+        request.session['userid'] = None
+        request.session['userpv'] = None
+        request.session['usernm'] = None
+
+    return HttpResponseRedirect(reverse('index'))
 
 def index(request):
     #print(get_language(request))
